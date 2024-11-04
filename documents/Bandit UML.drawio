@@ -1,68 +1,35 @@
-<mxfile host="Electron" modified="2024-11-04T14:31:40.451Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ChiRnVYbgJknQuhLHkin" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-11-04T16:23:59.619Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="qqYbN6Gy20VCiulPrX30" version="23.1.5" type="device">
   <diagram name="Page-1" id="kNPr2RnLPrwRS-I9x5If">
-    <mxGraphModel dx="770" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="819" dy="482" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-1" value="Main" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-1" value="Main" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
           <mxGeometry x="40" y="40" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-23" value="solver : BanditSolver" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-1">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-23" value="solver : BanditSolver" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-1" vertex="1">
           <mxGeometry y="40" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-25" value="main()" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-1">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-25" value="main()" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-1" vertex="1">
           <mxGeometry y="120" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-27" value="Environment" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="40" y="280" width="200" height="200" as="geometry" />
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-32" value="BanditArm" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
+          <mxGeometry x="520" y="40" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-28" value="armPoints : List[int]" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-27">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-33" value="armID : int&lt;br&gt;initialPoints: int&lt;br&gt;totalPoints : int&lt;br&gt;numOfVisits : int" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-32" vertex="1">
           <mxGeometry y="40" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-30" value="visitArm() : int" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-27">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-35" value="getUCB() : int&lt;br&gt;getPoints() : void&lt;br&gt;setPoints() : void&lt;br&gt;setVisits() : void" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-32" vertex="1">
           <mxGeometry y="120" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-32" value="BanditArm" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="360" y="280" width="200" height="200" as="geometry" />
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-37" value="BanditSolver" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
+          <mxGeometry x="280" y="40" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-33" value="armID : int&lt;br&gt;totalPoints : int&lt;br&gt;numOfVisits : int" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-32">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-38" value="arms : List[BanditArm]&lt;br&gt;totalPoints: int&lt;br&gt;totalRounds : int&lt;br&gt;currentRound : int" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-37" vertex="1">
           <mxGeometry y="40" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-35" value="getUCB() : int&lt;br&gt;updatePoints() : void&lt;br&gt;updateVisits() : void" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-32">
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-40" value="selectArm() : BanditArm&lt;br&gt;updateArm() : void" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-37" vertex="1">
           <mxGeometry y="120" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1vqhupfZXYNKLFvkHFP_-37" target="1vqhupfZXYNKLFvkHFP_-32">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-37" value="BanditSolver" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="360" y="40" width="200" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-38" value="arms : List[BanditArm]&lt;br&gt;totalRounds : int&lt;br&gt;currentRound : int" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-37">
-          <mxGeometry y="40" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-40" value="selectArm() : BanditArm&lt;br&gt;updateArm() : void" style="whiteSpace=wrap;html=1;" vertex="1" parent="1vqhupfZXYNKLFvkHFP_-37">
-          <mxGeometry y="120" width="200" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1vqhupfZXYNKLFvkHFP_-25" target="1vqhupfZXYNKLFvkHFP_-27">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.008;entryY=0.045;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.008;exitY=0.045;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="1vqhupfZXYNKLFvkHFP_-1" target="1vqhupfZXYNKLFvkHFP_-37">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.008;exitY=0.124;exitDx=0;exitDy=0;entryX=-0.017;entryY=0.128;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="1vqhupfZXYNKLFvkHFP_-27" target="1vqhupfZXYNKLFvkHFP_-32">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="1vqhupfZXYNKLFvkHFP_-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.004;entryY=0.145;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="1vqhupfZXYNKLFvkHFP_-37">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="120" as="targetPoint" />
-            <mxPoint x="240" y="290" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="330" y="290" />
-              <mxPoint x="330" y="69" />
-            </Array>
-          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
