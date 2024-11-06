@@ -14,6 +14,10 @@ public class BanditArm {
     return points;
   }
   
+  public int getID() {
+    return armID;
+  }
+  
   public int getVisits() {
     return numOfVisits;
   }

@@ -23,7 +23,7 @@ public class main {
 
     BanditArm arm3 = new BanditArm();
     arm3.armID = 3;
-    arm3.points = 19;
+    arm3.points = 20;
     arms.add(arm3);
 
     BanditArm arm4 = new BanditArm();
@@ -36,11 +36,24 @@ public class main {
     ExploreOnly.runRound();
     
     // Print results from BanditSolverExploreOnly and reset number of visits. 
-    System.out.println("Total points earned with Explore Only: " + ExploreOnly.getTotalPoints());
+    System.out.println("\n" + "Total points earned with Explore Only: " + ExploreOnly.getTotalPoints());
     
     for (BanditArm arm : arms) {
       System.out.println("Arm " + arm.armID + " visited " + arm.getVisits() + " times.");
+      arm.resetVisits();
     }
     
+    
+    // Initialise BanditSolverExploitOnly and run.
+    BanditSolverExploitOnly ExploitOnly = new BanditSolverExploitOnly(arms, totalRounds);
+    ExploitOnly.runRound();
+    
+    // Print results from BanditSolverExploitOnly and reset number of visits.
+    System.out.println("\n" + "Total points earned with Exploit Only: " + ExploitOnly.getTotalPoints());
+    System.out.println("Best arm: " + ExploitOnly.getBestArm());
+    for (BanditArm arm : arms) {
+      System.out.println("Arm " + arm.armID + " visited " + arm.getVisits() + " times.");
+      arm.resetVisits();
+    }
   }
 }
