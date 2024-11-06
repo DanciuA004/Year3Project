@@ -55,4 +55,8 @@ public class BanditSolverExploreOnly {
       round();
     }
   }
+  
+  public int getTotalPoints() {
+    return totalPoints;
+  }
 }

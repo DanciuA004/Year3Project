@@ -6,8 +6,10 @@ import java.util.List;
 public class main {
 
   public static void main(String[] args) {
- 
-    // Create a list of bandit arms
+    int totalRounds = 100;
+    System.out.println("Total rounds: " + totalRounds);
+    
+    // Create a list of bandit arms.
     List<BanditArm> arms = new ArrayList<>();
     BanditArm arm1 = new BanditArm();
     arm1.armID = 1;
@@ -25,13 +27,20 @@ public class main {
     arms.add(arm3);
 
     BanditArm arm4 = new BanditArm();
-    arm3.armID = 4;
-    arm3.points = 8;
+    arm4.armID = 4;
+    arm4.points = 8;
     arms.add(arm4);
     
- // Initialise BanditSolverExploreOnly and run
-    int totalRounds = 100;
+    // Initialise BanditSolverExploreOnly and run.
     BanditSolverExploreOnly ExploreOnly = new BanditSolverExploreOnly(arms, totalRounds);
     ExploreOnly.runRound();
+    
+    // Print results from BanditSolverExploreOnly and reset number of visits. 
+    System.out.println("Total points earned with Explore Only: " + ExploreOnly.getTotalPoints());
+    
+    for (BanditArm arm : arms) {
+      System.out.println("Arm " + arm.armID + " visited " + arm.getVisits() + " times.");
+    }
+    
   }
 }

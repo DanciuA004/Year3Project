@@ -18,6 +18,10 @@ public class BanditArm {
     return numOfVisits;
   }
   
+  public void resetVisits() {
+    numOfVisits = 0;
+  }
+  
   public void incrimentVisits() {
     numOfVisits += 1;
   }
