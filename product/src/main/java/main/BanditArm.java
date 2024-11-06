@@ -10,23 +10,23 @@ public class BanditArm {
   int points;
   int numOfVisits;
   
-  public int getPoints() {
-    return points;
-  }
-  
   public int getID() {
     return armID;
+  }
+  
+  public int getPoints() {
+    return points;
   }
   
   public int getVisits() {
     return numOfVisits;
   }
   
-  public void resetVisits() {
-    numOfVisits = 0;
-  }
-  
   public void incrimentVisits() {
     numOfVisits += 1;
+  }
+  
+  public void resetVisits() {
+    numOfVisits = 0;
   }
 }
