@@ -39,12 +39,10 @@ public class BanditSolverExploreOnly {
    * and updating relevant values.
    */
   public void round() {
-    if (currentRound < totalRounds) {
-      BanditArm arm = selectArm();
-      arm.incrimentVisits();
-      totalPoints += arm.getPoints();
-      currentRound++;
-    }
+    BanditArm arm = selectArm();
+    arm.incrimentVisits();
+    totalPoints += arm.getPoints();
+    currentRound++;
   }
   
   /*
