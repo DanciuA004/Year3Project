@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-11-06T15:19:45.731Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="b5ilIxcvv9W5ppll0B2c" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-11-08T22:01:59.612Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ZVDH4-ZBpaGfm_43NrYG" version="23.1.5" type="device">
   <diagram name="Page-1" id="kNPr2RnLPrwRS-I9x5If">
-    <mxGraphModel dx="926" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1674" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -32,16 +32,16 @@
           <mxGeometry y="130" width="240" height="110" as="geometry" />
         </mxCell>
         <mxCell id="6bMKrvYl9TTgVdjerZZT-1" value="BanditSolverEGReedy" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
-          <mxGeometry x="510" y="220" width="200" height="200" as="geometry" />
+          <mxGeometry x="510" y="220" width="240" height="320" as="geometry" />
         </mxCell>
-        <mxCell id="6bMKrvYl9TTgVdjerZZT-2" value="" style="whiteSpace=wrap;html=1;" parent="6bMKrvYl9TTgVdjerZZT-1" vertex="1">
-          <mxGeometry y="40" width="200" height="80" as="geometry" />
+        <mxCell id="6bMKrvYl9TTgVdjerZZT-2" value="arms : List&amp;lt;BanditArm&amp;gt;&lt;br&gt;totalPoints: int&lt;br&gt;totalRounds : int&lt;br&gt;currentRound : int&lt;br&gt;E : int&lt;br&gt;bestPoints : int&lt;br&gt;bestArm : BanditArm&lt;br&gt;random : Random" style="whiteSpace=wrap;html=1;" parent="6bMKrvYl9TTgVdjerZZT-1" vertex="1">
+          <mxGeometry y="40" width="240" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="6bMKrvYl9TTgVdjerZZT-3" value="" style="whiteSpace=wrap;html=1;" parent="6bMKrvYl9TTgVdjerZZT-1" vertex="1">
-          <mxGeometry y="120" width="200" height="80" as="geometry" />
+        <mxCell id="6bMKrvYl9TTgVdjerZZT-3" value="BanditSolverEGreedy() : constructor&lt;br&gt;selectArm() : BanditArm&lt;br&gt;firstRound() : void&lt;br&gt;round() : void&lt;br&gt;runRound() : void&lt;br&gt;getTotalPoints() : int&lt;br&gt;getBestArm() : int" style="whiteSpace=wrap;html=1;" parent="6bMKrvYl9TTgVdjerZZT-1" vertex="1">
+          <mxGeometry y="180" width="240" height="140" as="geometry" />
         </mxCell>
         <mxCell id="6bMKrvYl9TTgVdjerZZT-4" value="BanditSolverUCB" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
-          <mxGeometry x="720" y="220" width="200" height="200" as="geometry" />
+          <mxGeometry x="760" y="220" width="200" height="200" as="geometry" />
         </mxCell>
         <mxCell id="6bMKrvYl9TTgVdjerZZT-5" value="" style="whiteSpace=wrap;html=1;" parent="6bMKrvYl9TTgVdjerZZT-4" vertex="1">
           <mxGeometry y="40" width="200" height="80" as="geometry" />
