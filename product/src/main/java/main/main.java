@@ -55,5 +55,18 @@ public class main {
       System.out.println("Arm " + arm.armID + " visited " + arm.getVisits() + " times.");
       arm.resetVisits();
     }
+      
+   // Initialise BanditSolverEGreedy and run.
+      BanditSolverEGreedy EGreedy = new BanditSolverEGreedy(arms, totalRounds, 10);
+      EGreedy.runRound();
+      
+   // Print results from BanditSolverEGreedy and reset number of visits.
+    System.out.println("\n" + "Total points earned with E-Greedy: " + EGreedy.getTotalPoints());
+    System.out.println("Best arm: " + EGreedy.getBestArm());
+    for (BanditArm arm : arms) {
+      System.out.println("Arm " + arm.armID + " visited " + arm.getVisits() + " times.");
+      arm.resetVisits();
+    }
+    
   }
 }
