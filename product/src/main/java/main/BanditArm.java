@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Random;
+
 /* 
  * This class is the base for the bandit problem.
  * it holds the different arms, the different places the user can go.
@@ -7,14 +9,25 @@ package main;
  */
 public class BanditArm {
   int armID;
-  int points;
+  int expectedPoints;
+  int deviation;
   int numOfVisits;
+  Random random;
+  
+  public BanditArm(int armID, int expectedPoints, int deviation) {
+    this.armID = armID;
+    this.expectedPoints = expectedPoints;
+    this.deviation = deviation;
+    this.numOfVisits = 0;
+    this.random = new Random();
+  }
   
   public int getID() {
     return armID;
   }
   
   public int getPoints() {
+    int points = (int) (random.nextGaussian() * deviation + expectedPoints);
     return points;
   }
   
