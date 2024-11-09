@@ -13,16 +13,20 @@ public class BanditSolverUCB {
   int totalPoints;
   int totalRounds;
   int currentRound;
+  int maxUCB;
+  int selectedArm;
   
   /*
    * Initialised variables above and taking list arms and totalRounds from main when set. 
    */
-  public BanditSolverUCB(List<BanditArm> arms, int totalRounds, int E) {
+  public BanditSolverUCB(List<BanditArm> arms, int totalRounds) {
     this.arms = arms;
     this.totalPointsEachArm = new ArrayList<>();
     this.totalPoints = 0;
     this.totalRounds = totalRounds;
     this.currentRound = 0;
+    this.maxUCB = 0;
+    this.selectedArm = 0;
     
     for (int i = 0; i < arms.size(); i++) {
       totalPointsEachArm.add(0);
@@ -33,9 +37,6 @@ public class BanditSolverUCB {
    * Returns the chosen arm based on the UCB algorithm.
    */
   public BanditArm selectArm() {
-    int maxUCB = 0;
-    int selectedArm = 0;
-    
     for (int i = 0; i < arms.size(); i++) {
       BanditArm arm = arms.get(i);
 
@@ -72,6 +73,12 @@ public class BanditSolverUCB {
     
     int armIndex = arms.indexOf(arm);
     totalPointsEachArm.set(armIndex, totalPointsEachArm.get(armIndex) + points);
+    
+    // Uncomment to see how the values in totalPointsEachArm itterate each time.
+//    System.out.println("\n");
+//    for (int i : totalPointsEachArm) {
+//      System.out.println("i:" + i);
+//    }
     
     currentRound++;
   }

@@ -60,5 +60,15 @@ public class main {
       arm.resetVisits();
     }
     
+   // Initialise BanditSolverUCB and run.
+      BanditSolverUCB UCB = new BanditSolverUCB(arms, totalRounds);
+      UCB.runRound();
+      
+   // Print results from BanditSolverEGreedy and reset number of visits.
+    System.out.println("\n" + "Total points earned with UCB: " + UCB.getTotalPoints());
+    for (BanditArm arm : arms) {
+      System.out.println("Arm " + arm.armID + " visited " + arm.getVisits() + " times.");
+      arm.resetVisits();
+    }
   }
 }
