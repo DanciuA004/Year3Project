@@ -74,7 +74,7 @@ public class BanditSolverUCB {
     int armIndex = arms.indexOf(arm);
     totalPointsEachArm.set(armIndex, totalPointsEachArm.get(armIndex) + points);
     
-    // Uncomment to see how the values in totalPointsEachArm itterate each time.
+    // Uncomment to see how the values in totalPointsEachArm iterate each time.
 //    System.out.println("\n");
 //    for (int i : totalPointsEachArm) {
 //      System.out.println("i:" + i);
