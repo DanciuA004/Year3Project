@@ -6,22 +6,22 @@ import java.util.List;
 public class main {
 
   public static void main(String[] args) {
-    int totalRounds = 500;
-    int E = 10;
+    int totalRounds = 100;
+    int E = 50;
     System.out.println("Total rounds: " + totalRounds);
     
     // Create a list of bandit arms.
     List<BanditArm> arms = new ArrayList<>();
-    BanditArm arm1 = new BanditArm(1, 10, 2);
+    BanditArm arm1 = new BanditArm(1, 10, 4);
     arms.add(arm1);
 
     BanditArm arm2 = new BanditArm(2, 5, 5);
     arms.add(arm2);
 
-    BanditArm arm3 = new BanditArm(3, 20, 3);
+    BanditArm arm3 = new BanditArm(3, 7, 3);
     arms.add(arm3);
 
-    BanditArm arm4 = new BanditArm(4, 8, 4);
+    BanditArm arm4 = new BanditArm(4, 8, 2);
     arms.add(arm4);
     
     // Initialise BanditSolverExploreOnly and run.
