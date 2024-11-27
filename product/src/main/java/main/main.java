@@ -6,7 +6,7 @@ import java.util.List;
 public class main {
 
   public static void main(String[] args) {
-    int totalRounds = 100;
+    int totalRounds = 500;
     int E = 10;
     System.out.println("Total rounds: " + totalRounds);
     
