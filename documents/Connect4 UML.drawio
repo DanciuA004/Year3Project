@@ -1,0 +1,28 @@
+<mxfile host="Electron" modified="2024-12-01T10:39:16.465Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ykMhCNZdFxWwY14ATQKV" version="23.1.5" type="device">
+  <diagram name="Page-1" id="kNPr2RnLPrwRS-I9x5If">
+    <mxGraphModel dx="1195" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-1" value="Main" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
+          <mxGeometry x="190" y="10" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-23" value="" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-1" vertex="1">
+          <mxGeometry y="40" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-25" value="" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-1" vertex="1">
+          <mxGeometry y="200" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-37" value="" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
+          <mxGeometry x="480" y="30" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-38" value="" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-37" vertex="1">
+          <mxGeometry y="40" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1vqhupfZXYNKLFvkHFP_-40" value="" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-37" vertex="1">
+          <mxGeometry y="130" width="240" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
