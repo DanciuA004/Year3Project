@@ -1,11 +1,11 @@
-<mxfile host="Electron" modified="2024-12-01T11:25:45.632Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="vVE4icTKUzEYlXKm5L0F" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-12-01T11:27:54.095Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="wpKhNYn35ZGmQSGceV3A" version="23.1.5" type="device">
   <diagram name="Page-1" id="kNPr2RnLPrwRS-I9x5If">
-    <mxGraphModel dx="772" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1372" dy="1103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="1vqhupfZXYNKLFvkHFP_-1" value="Connect4Main" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
-          <mxGeometry x="200" width="240" height="200" as="geometry" />
+          <mxGeometry x="240" y="-120" width="240" height="200" as="geometry" />
         </mxCell>
         <mxCell id="1vqhupfZXYNKLFvkHFP_-23" value="board : Board&lt;br&gt;players : Player[]&lt;br&gt;currentPlayer : int" style="whiteSpace=wrap;html=1;" parent="1vqhupfZXYNKLFvkHFP_-1" vertex="1">
           <mxGeometry y="40" width="240" height="80" as="geometry" />
@@ -14,7 +14,7 @@
           <mxGeometry y="120" width="240" height="80" as="geometry" />
         </mxCell>
         <mxCell id="s7DQjsTZyhvL4s5S0PC--1" value="Board" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="480" width="240" height="200" as="geometry" />
+          <mxGeometry x="110" y="300" width="240" height="200" as="geometry" />
         </mxCell>
         <mxCell id="s7DQjsTZyhvL4s5S0PC--2" value="grid : char[][]&lt;br&gt;rows : int&lt;br&gt;columns : int" style="whiteSpace=wrap;html=1;" vertex="1" parent="s7DQjsTZyhvL4s5S0PC--1">
           <mxGeometry y="40" width="240" height="80" as="geometry" />
@@ -23,7 +23,7 @@
           <mxGeometry y="120" width="240" height="80" as="geometry" />
         </mxCell>
         <mxCell id="s7DQjsTZyhvL4s5S0PC--4" value="GameLogic" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="200" y="240" width="240" height="200" as="geometry" />
+          <mxGeometry x="240" y="90" width="240" height="200" as="geometry" />
         </mxCell>
         <mxCell id="s7DQjsTZyhvL4s5S0PC--5" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="s7DQjsTZyhvL4s5S0PC--4">
           <mxGeometry y="40" width="240" height="80" as="geometry" />
@@ -32,7 +32,7 @@
           <mxGeometry y="120" width="240" height="80" as="geometry" />
         </mxCell>
         <mxCell id="s7DQjsTZyhvL4s5S0PC--7" value="Player" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="480" y="240" width="240" height="200" as="geometry" />
+          <mxGeometry x="370" y="300" width="240" height="200" as="geometry" />
         </mxCell>
         <mxCell id="s7DQjsTZyhvL4s5S0PC--8" value="name : String&lt;br&gt;disc : char" style="whiteSpace=wrap;html=1;" vertex="1" parent="s7DQjsTZyhvL4s5S0PC--7">
           <mxGeometry y="40" width="240" height="80" as="geometry" />
