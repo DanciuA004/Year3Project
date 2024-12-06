@@ -1,5 +1,8 @@
 # Diary
 
+### Friday the 6th of December, 2024
+Finished the powerpoint for submition tomorrrow and started thinking of script.
+
 ### Wednesday the 4th of December, 2024
 Made a plan for the final stretch. Started work on the rough draft of the presentation and putting together the proof-of-concept reports for the interim report. Formatted diary. 
 
