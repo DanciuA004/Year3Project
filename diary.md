@@ -1,5 +1,8 @@
 # Diary
 
+### Saturday the 7th of December, 2024
+Added transitions and animations to PowerPoint and submitted. Formatted interim report and added work from proof of concept reports.
+
 ### Friday the 6th of December, 2024
 Finished the powerpoint for submition tomorrrow and started thinking of script.
 
