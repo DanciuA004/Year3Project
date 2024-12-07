@@ -1,7 +1,7 @@
 # Diary
 
 ### Saturday the 7th of December, 2024
-Added transitions and animations to PowerPoint and submitted. Formatted interim report and added work from proof of concept reports.
+Added transitions and animations to PowerPoint and submitted. Formatted interim report and added work from proof of concept reports. Added foundation code from Connect4 UML. Fixed issues with checkstyle not working, configured it, fix checkstyle errors on all classes.
 
 ### Friday the 6th of December, 2024
 Finished the powerpoint for submition tomorrrow and started thinking of script.
