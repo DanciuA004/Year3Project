@@ -7,6 +7,7 @@ package main;
 public class Connect4Main {
 
   public void run() {
-    
+    Connect4Board board = new Connect4Board();
+    board.displayBoard();
   }
 }
