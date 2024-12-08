@@ -15,9 +15,9 @@ public class Connect4Board {
   public Connect4Board() {
     grid = new char[rows][columns];
     // Fill the grid with empty spaces
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < columns; j++) {
-        grid[i][j] = 0;
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < columns; c++) {
+        grid[r][c] = 0;
       }
     }
   }
@@ -39,5 +39,26 @@ public class Connect4Board {
       System.out.print("--");
     }
     System.out.println("-");
+  }
+  
+  /**
+   * Drops a disc into a column on the board.
+   *
+   * @param column The column where the disc will be dropped.
+   * @param disc The disc to be dropped (e.g., "R" or "Y").
+   * @return true if the disc was successfully dropped, false if the column invalid.
+   */
+  public boolean dropDisc(int column, char disc) {
+    if (column < 0 || column >= 7) {
+      return false; // Invalid column
+    }
+
+    for (int r = 5; r >= 0; r--) {
+      if (grid[r][column] == ' ') {
+        grid[r][column] = disc;
+        return true;
+      }
+    }
+    return false; // Column is full
   }
 }

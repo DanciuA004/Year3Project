@@ -7,6 +7,11 @@ public class Connect4Player {
   String name;
   char disc;
 
+  public Connect4Player(String name, char disc) {
+    this.name = name;
+    this.disc = disc;
+  }
+  
   public String getName() {
     return name;
   }
