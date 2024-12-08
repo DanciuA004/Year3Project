@@ -1,5 +1,8 @@
 # Diary
 
+### Sunday the 8th of December, 2024
+Continued work on Connect4 proof of concept code.
+
 ### Saturday the 7th of December, 2024
 Added transitions and animations to PowerPoint and submitted. Formatted interim report and added work from proof of concept reports. Added foundation code from Connect4 UML. Fixed issues with checkstyle not working, configured it, fix checkstyle errors on all classes.
 
