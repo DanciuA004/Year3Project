@@ -67,7 +67,11 @@ public class Connect4Main {
       }
 
       // Switch to the other player
-      currentPlayer = (currentPlayer == player1) ? player2 : player1;
+      if (currentPlayer == player1) {
+        currentPlayer = player2;
+      } else {
+        currentPlayer = player1;
+      }
     }
 
     // Game over
