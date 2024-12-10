@@ -1,5 +1,8 @@
 # Diary
 
+### Teusday the 10th of December, 2024
+Finished work on Connect4 proof of concept code.
+
 ### Sunday the 8th of December, 2024
 Continued work on Connect4 proof of concept code.
 
