@@ -5,8 +5,8 @@ package main;
  */
 public class Connect4Board {
   char[][] grid;
-  private final int rows = 6;
-  private final int columns = 7;
+  final int rows = 6;
+  final int columns = 7;
 
 
   /**
@@ -40,7 +40,7 @@ public class Connect4Board {
     }
     System.out.println("-");
   }
-  
+
   /**
    * Drops a disc into a column on the board.
    *
@@ -49,14 +49,14 @@ public class Connect4Board {
    * @return true if the disc was successfully dropped, false if the column invalid.
    */
   public boolean dropDisc(int column, char disc) {
-    if (column < 0 || column >= 7) {
+    if (column < 0 || column >= columns) { 
       return false; // Invalid column
     }
 
-    for (int r = 5; r >= 0; r--) {
-      if (grid[r][column] == ' ') {
+    for (int r = rows - 1; r >= 0; r--) { 
+      if (grid[r][column] == 0) { 
         grid[r][column] = disc;
-        return true;
+        return true; // Disc successfully dropped
       }
     }
     return false; // Column is full
