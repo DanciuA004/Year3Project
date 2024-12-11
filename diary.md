@@ -1,19 +1,22 @@
 # Diary
 
+### Thursday the 12th of December, 2024
+Completed video and submitted all work for interim submission.
+
 ### Wednesday the 11th of December, 2024
 Finished interim report.
 
-### Teusday the 10th of December, 2024
+### Tuesday the 10th of December, 2024
 Finished work on Connect4 proof of concept code.
 
 ### Sunday the 8th of December, 2024
 Continued work on Connect4 proof of concept code.
 
 ### Saturday the 7th of December, 2024
-Added transitions and animations to PowerPoint and submitted. Formatted interim report and added work from proof of concept reports. Added foundation code from Connect4 UML. Fixed issues with checkstyle not working, configured it, fix checkstyle errors on all classes.
+Added transitions and animations to PowerPoint and submitted. Formatted interim report and added work from proof of concept reports. Added foundation code from Connect4 UML. Fixed issues with check-style not working, configured it, fix check-style errors on all classes.
 
 ### Friday the 6th of December, 2024
-Finished the powerpoint for submition tomorrrow and started thinking of script.
+Finished the PowerPoint for submission tomorrow and started thinking of the script.
 
 ### Wednesday the 4th of December, 2024
 Made a plan for the final stretch. Started work on the rough draft of the presentation and putting together the proof-of-concept reports for the interim report. Formatted diary. 
