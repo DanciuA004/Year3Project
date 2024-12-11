@@ -1,5 +1,8 @@
 # Diary
 
+### Wednesday the 11th of December, 2024
+Finished interim report.
+
 ### Teusday the 10th of December, 2024
 Finished work on Connect4 proof of concept code.
 
