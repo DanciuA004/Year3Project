@@ -15,7 +15,7 @@ public class BanditMain {
    */
   public void run() {
     int totalRounds = 100;
-    final int epsilon = 50;
+    final int epsilon = 10;
     System.out.println("Total rounds: " + totalRounds);
 
     // Create a list of bandit arms.
