@@ -1,4 +1,12 @@
 # Diary
+### Teusday the 4th of February, 2025
+Started work on implementing GUI for program,
+
+### Sunday the 2nd of February, 2025
+Continued learning JavaFX for GUI of program.
+
+### Saturday the 1st of February, 2025
+Started learning JavaFX for GUI of program. Set up meeting with supervisor for Thursday.
 
 ### Thursday the 12th of December, 2024
 Completed video and submitted all work for interim submission.
