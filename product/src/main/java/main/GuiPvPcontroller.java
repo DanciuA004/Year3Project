@@ -19,7 +19,7 @@ public class GuiPvPcontroller {
   private Parent root;
   
   /**
-   * "Back to Menu" buttons leads back to the menu page.
+   * "Back to Menu" button leads back to the menu page.
    *
    * @throws IOException If resource not found an exception will be thrown.
    */
@@ -29,5 +29,12 @@ public class GuiPvPcontroller {
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+  }
+  
+  /**
+   * "Restart" button restarts the game.
+   */
+  public void restart() {
+    
   }
 }
