@@ -30,4 +30,17 @@ public class GuiMenuController {
     stage.show();
   }
   
+  /**
+   * "Versus Player" button leads to the PvE game stage.
+   *
+   * @throws IOException If resource not found an exception will be thrown.
+   */
+  public void switchToPvE(ActionEvent event) throws IOException {
+    root = FXMLLoader.load(getClass().getResource("GuiPvE.fxml"));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+  
 }
