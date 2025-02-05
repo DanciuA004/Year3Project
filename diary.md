@@ -1,4 +1,7 @@
 # Diary
+### Wednesday the 5th of February, 2025
+Continued work on implementing GUI for program,
+
 ### Teusday the 4th of February, 2025
 Started work on implementing GUI for program,
 
