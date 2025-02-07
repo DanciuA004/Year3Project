@@ -1,9 +1,18 @@
 # Diary
+### Friday the 7th of February 2025
+Continued work on GUI,
+Set up game to work with GUI clicks on column buttons and game logic,
+Got reset button working,
+Working towards the slots updating with the correct player colours. 
+
+### Thursday the 6th of February 2025
+Had meeting with supervisor.
+
 ### Wednesday the 5th of February, 2025
-Continued work on implementing GUI for program,
+Continued work on implementing GUI for program.
 
 ### Teusday the 4th of February, 2025
-Started work on implementing GUI for program,
+Started work on implementing GUI for program.
 
 ### Sunday the 2nd of February, 2025
 Continued learning JavaFX for GUI of program.
