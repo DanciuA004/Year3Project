@@ -20,9 +20,9 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Label fx:id="labelPvP" alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" prefHeight="75.0" prefWidth="800.0" text=" Welcome to PvP!" textAlignment="CENTER">
+      <Label fx:id="labelPvP" alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" prefHeight="75.0" prefWidth="800.0" text="Player One, please select a column!" textAlignment="CENTER">
          <font>
-            <Font size="50.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bde0ff" height="600.0" layoutX="50.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
@@ -68,5 +68,17 @@
       <Circle centerX="300.0" centerY="230.0" fill="#dfe8f2" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle centerX="500.0" centerY="230.0" fill="#dfe8f2" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle centerX="600.0" centerY="230.0" fill="#dfe8f2" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="buttonColumn1" layoutX="50.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn2" layoutX="149.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn3" layoutX="249.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn4" layoutX="349.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn5" layoutX="449.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn6" layoutX="549.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn7" layoutX="649.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Label layoutX="416.0" layoutY="8.0" text="Welcome to PvP!">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -29,10 +29,6 @@ public class Connect4Main {
 
     // Game loop
     while (true) {
-      // Display the current board state
-      System.out.println("\nCurrent board:");
-      board.displayBoard();
-
       // Prompt the current player for their move
       System.out
           .println(currentPlayer.getName() + " (" + currentPlayer.getDisc() + "), it's your turn.");
@@ -54,14 +50,12 @@ public class Connect4Main {
 
       // Check for a win
       if (gameLogic.checkWin(board)) {
-        board.displayBoard();
         System.out.println("\nCongratulations, " + currentPlayer.getName() + "! You win!");
         break;
       }
 
       // Check for a draw
       if (gameLogic.checkDraw(board)) {
-        board.displayBoard();
         System.out.println("\nThe game is a draw! No more valid moves.");
         break;
       }

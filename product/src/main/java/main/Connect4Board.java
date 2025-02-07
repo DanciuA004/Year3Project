@@ -21,7 +21,7 @@ public class Connect4Board {
       }
     }
   }
-
+  
   /**
    * Displays the Connect 4 board to the console.
    */

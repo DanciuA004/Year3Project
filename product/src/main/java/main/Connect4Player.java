@@ -7,6 +7,12 @@ public class Connect4Player {
   String name;
   char disc;
 
+  /**
+   * Constructor.
+   *
+   * @param name the name of the player.
+   * @param disc the colour of their disc.
+   */
   public Connect4Player(String name, char disc) {
     this.name = name;
     this.disc = disc;
