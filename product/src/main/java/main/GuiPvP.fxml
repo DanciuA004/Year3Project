@@ -68,7 +68,7 @@
       <Circle centerX="300.0" centerY="230.0" fill="#dfe8f2" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle centerX="500.0" centerY="230.0" fill="#dfe8f2" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle centerX="600.0" centerY="230.0" fill="#dfe8f2" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="buttonColumn1" layoutX="50.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
+      <Button fx:id="buttonColumn1" layoutX="49.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
       <Button fx:id="buttonColumn2" layoutX="149.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
       <Button fx:id="buttonColumn3" layoutX="249.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />
       <Button fx:id="buttonColumn4" layoutX="349.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickColumn" opacity="0.25" prefHeight="600.0" prefWidth="102.0" />

@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -18,7 +21,7 @@ public class GuiPvPcontroller {
   private Stage stage;
   private Scene scene;
   private Parent root;
-  
+
   @FXML
   private Label labelPvP;
 
@@ -32,11 +35,11 @@ public class GuiPvPcontroller {
    * When a column is clicked a disc is dropped.
    */
   public void clickColumn(ActionEvent event) {
-    
+
     // contains the element that caused the event.
     String eventSource = event.getSource().toString();
-    
-    // checks through all seven column IDs a drops disc into correct column. 
+
+    // checks through all seven column IDs a drops disc into correct column.
     if (eventSource.equals("Button[id=buttonColumn1, styleClass=button]''")) {
       board.dropDisc(0, currentPlayer.getDisc());
     } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
@@ -52,16 +55,14 @@ public class GuiPvPcontroller {
     } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
       board.dropDisc(6, currentPlayer.getDisc());
     }
-    
+
     // checks if there is a win condition and sends an alert.
     if (gameLogic.checkWin(board)) {
       displayWin();
-      restart();
     } else if (gameLogic.checkDraw(board)) {
       displayDraw();
-      restart();
     }
-    
+
     // switches current player and label
     if (currentPlayer == player1) {
       currentPlayer = player2;
@@ -73,21 +74,33 @@ public class GuiPvPcontroller {
 
     board.displayBoard();
   }
-  
+
   /**
    * Shows an alert box displaying the winner.
    */
   public void displayWin() {
-    
+    Alert alertWin = new Alert(AlertType.INFORMATION);
+    alertWin.setTitle("Winner!");
+    alertWin.setHeaderText("The Winner is: " + currentPlayer.getName());
+    alertWin.setContentText("The game will now restart");
+    if (alertWin.showAndWait().get() == ButtonType.OK) {
+      restart();
+    }
   }
-  
+
   /**
    * Shows an alert box displaying draw condition.
    */
   public void displayDraw() {
-    
+    Alert alertDraw = new Alert(AlertType.INFORMATION);
+    alertDraw.setTitle("Draw!");
+    alertDraw.setHeaderText("No Winner! There is a draw!");
+    alertDraw.setContentText("The game will now restart");
+    if (alertDraw.showAndWait().get() == ButtonType.OK) {
+      restart();
+    }
   }
-  
+
   /**
    * "Back to Menu" button leads back to the menu page.
    *
