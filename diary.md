@@ -1,4 +1,9 @@
 # Diary
+### Sunday the 9th of February 2025
+Finished connecting the back end to GUI for game.
+Had to add a grid pane to contain all the circles,
+updated dropDisc() method to return int instead of boolean to update GUI.
+
 ### Friday the 7th of February 2025
 Continued work on GUI,
 Set up game to work with GUI clicks on column buttons and game logic,
