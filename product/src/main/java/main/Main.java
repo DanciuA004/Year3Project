@@ -15,7 +15,7 @@ public class Main {
 //    BanditMain banditMain = new BanditMain();
 //    banditMain.run();
     
-    Connect4Main connect4Main = new Connect4Main();
-    connect4Main.run();
+//    Connect4Main connect4Main = new Connect4Main();
+//    connect4Main.run();
   }
 }

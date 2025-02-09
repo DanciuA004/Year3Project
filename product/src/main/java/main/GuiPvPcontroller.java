@@ -1,9 +1,12 @@
 package main;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,25 +14,48 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
  * This is a controller class that will implements all of the functions for the
  * assets on the PvP stage.
  */
-public class GuiPvPcontroller {
+public class GuiPvPcontroller implements Initializable {
   private Stage stage;
   private Scene scene;
   private Parent root;
 
+  private final int rows = 6;
+  private final int columns = 7;
+
   @FXML
   private Label labelPvP;
+  @FXML
+  GridPane gridPane;
 
   private Connect4Board board = new Connect4Board();
   private Connect4GameLogic gameLogic = new Connect4GameLogic();
   private Connect4Player player1 = new Connect4Player("Player 1", 'R');
   private Connect4Player player2 = new Connect4Player("Player 2", 'Y');
   private Connect4Player currentPlayer = player1;
+  private Circle[][] circles = new Circle[rows][columns];
+
+  @Override
+  public void initialize(URL arg0, ResourceBundle arg1) {
+    for (int row = 0; row < rows; row++) {
+      for (int col = 0; col < columns; col++) {
+        Circle circle = new Circle(45);
+        circle.setFill(Color.WHITE);
+        circle.setStroke(Color.BLACK);
+
+        circles[row][col] = circle;
+        gridPane.add(circle, col, row);
+      }
+    }
+  }
 
   /**
    * When a column is clicked a disc is dropped.
@@ -41,19 +67,26 @@ public class GuiPvPcontroller {
 
     // checks through all seven column IDs a drops disc into correct column.
     if (eventSource.equals("Button[id=buttonColumn1, styleClass=button]''")) {
-      board.dropDisc(0, currentPlayer.getDisc());
+      int row = board.dropDisc(0, currentPlayer.getDisc());
+      updateGrid(row, 0);
     } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
-      board.dropDisc(1, currentPlayer.getDisc());
+      int row = board.dropDisc(1, currentPlayer.getDisc());
+      updateGrid(row, 1);
     } else if (eventSource.equals("Button[id=buttonColumn3, styleClass=button]''")) {
-      board.dropDisc(2, currentPlayer.getDisc());
+      int row = board.dropDisc(2, currentPlayer.getDisc());
+      updateGrid(row, 2);
     } else if (eventSource.equals("Button[id=buttonColumn4, styleClass=button]''")) {
-      board.dropDisc(3, currentPlayer.getDisc());
+      int row = board.dropDisc(3, currentPlayer.getDisc());
+      updateGrid(row, 3);
     } else if (eventSource.equals("Button[id=buttonColumn5, styleClass=button]''")) {
-      board.dropDisc(4, currentPlayer.getDisc());
+      int row = board.dropDisc(4, currentPlayer.getDisc());
+      updateGrid(row, 4);
     } else if (eventSource.equals("Button[id=buttonColumn6, styleClass=button]''")) {
-      board.dropDisc(5, currentPlayer.getDisc());
+      int row = board.dropDisc(5, currentPlayer.getDisc());
+      updateGrid(row, 5);
     } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
-      board.dropDisc(6, currentPlayer.getDisc());
+      int row = board.dropDisc(6, currentPlayer.getDisc());
+      updateGrid(row, 6);
     }
 
     // checks if there is a win condition and sends an alert.
@@ -71,8 +104,20 @@ public class GuiPvPcontroller {
       currentPlayer = player1;
       labelPvP.setText("Player One, please select a column!");
     }
+  }
 
-    board.displayBoard();
+  /**
+   * This method changes the colour of the circle when a disc is dropped.
+   *
+   * @param row the row number of the disc.
+   * @param col the column number of the disc.
+   */
+  public void updateGrid(int row, int col) {
+    if (currentPlayer.getDisc() == 'R') {
+      circles[row][col].setFill(Color.RED);
+    } else {
+      circles[row][col].setFill(Color.YELLOW);
+    }
   }
 
   /**
@@ -121,5 +166,16 @@ public class GuiPvPcontroller {
   public void restart() {
     board = new Connect4Board();
     currentPlayer = player1;
+
+    for (int row = 0; row < rows; row++) {
+      for (int col = 0; col < columns; col++) {
+        Circle circle = new Circle(45);
+        circle.setFill(Color.WHITE);
+        circle.setStroke(Color.BLACK);
+
+        circles[row][col] = circle;
+        gridPane.add(circle, col, row);
+      }
+    }
   }
 }
