@@ -1,4 +1,7 @@
 # Diary
+### Monday the 10th of February 2025
+Coppied PvP to PvE, started working towards a basic version of the Ai that randomly selects a move to make.
+
 ### Sunday the 9th of February 2025
 Finished connecting the back end to GUI for game.
 Had to add a grid pane to contain all the circles,
