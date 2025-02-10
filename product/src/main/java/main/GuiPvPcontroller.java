@@ -20,8 +20,8 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
- * This is a controller class that will implements all of the functions for the
- * assets on the PvP stage.
+ * This is a controller class that will implements all of the functions for the assets on the PvP
+ * stage.
  */
 public class GuiPvPcontroller implements Initializable {
   private Stage stage;
