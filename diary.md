@@ -1,4 +1,7 @@
 # Diary
+### Friday the 21st of February 2025
+Started work on final report.
+
 ### Monday the 10th of February 2025
 Coppied PvP to PvE, started working towards a basic version of the Ai that randomly selects a move to make.
 
