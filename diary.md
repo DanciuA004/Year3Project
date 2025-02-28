@@ -1,4 +1,7 @@
 # Diary
+### Friday the 28th of February 2025
+Doing research into MCTS and adding to bibliography for report.
+
 ### Friday the 21st of February 2025
 Started work on final report.
 
