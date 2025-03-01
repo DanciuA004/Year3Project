@@ -1,4 +1,8 @@
 # Diary
+### Saturday the 1st of March 2025
+Added more to bibliography and created rough draft of Monte-Carlo section in report,
+Added AI opponent that drops disc in random column 0-6.
+
 ### Friday the 28th of February 2025
 Doing research into MCTS and adding to bibliography for report.
 
