@@ -3,6 +3,9 @@ package main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,15 +21,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
- * This is a controller class that will implements all of the functions for the assets on the PvE
- * stage.
+ * This is a controller class that will implements all of the functions for the
+ * assets on the PvE stage.
  */
 public class GuiPvEcontroller implements Initializable {
   private Stage stage;
   private Scene scene;
   private Parent root;
+  private AiOpponent aiOp = new AiOpponent();
 
   private final int rows = 6;
   private final int columns = 7;
@@ -96,10 +101,28 @@ public class GuiPvEcontroller implements Initializable {
       displayDraw();
     }
 
-    // switches current player and label
+    switchPlayer();
+  }
+
+  /**
+   * Switches the current player and runs the AI's turn.
+   */
+  public void switchPlayer() {
     if (currentPlayer == player1) {
       currentPlayer = player2;
-      labelPvP.setText("Player Two, please select a column!");
+      labelPvP.setText("AI Opponents Turn!");
+
+
+      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+        int column = aiOp.play();
+        int row = board.dropDisc(column, currentPlayer.getDisc());
+        updateGrid(row, column);
+
+        currentPlayer = player1;
+        labelPvP.setText("Player One, please select a column!");
+      }));
+      timeline.play(); 
+
     } else if (currentPlayer == player2) {
       currentPlayer = player1;
       labelPvP.setText("Player One, please select a column!");
