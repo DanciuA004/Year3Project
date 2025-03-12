@@ -1,4 +1,4 @@
-package main;
+package banditpoc;
 
 import java.util.Random;
 

@@ -1,17 +1,17 @@
-package main;
+package finalproduct;
 
 /**
  * The class that holds the important methods for game logic, allowing the players to make moves and
  * validating to ensure they are correct and can be made.
  */
-public class Connect4GameLogic {
+public class C4Logic {
 
   /**
    * Checks if the current state of the board has a winning condition.
    *
    * @return true if there is a win, false otherwise.
    */
-  public boolean checkWin(Connect4Board board) {
+  public boolean checkWin(C4Board board) {
     char[][] grid = board.grid;
 
     // Check horizontal
@@ -66,7 +66,7 @@ public class Connect4GameLogic {
    *
    * @return true if the game is a draw, false otherwise.
    */
-  public boolean checkDraw(Connect4Board board) {
+  public boolean checkDraw(C4Board board) {
     for (int c = 0; c < 7; c++) {
       for (int r = 0; r < 6; r++) {
         if (board.grid[r][c] == 0) {

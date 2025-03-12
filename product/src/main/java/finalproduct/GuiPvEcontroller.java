@@ -1,4 +1,4 @@
-package main;
+package finalproduct;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,11 +41,11 @@ public class GuiPvEcontroller implements Initializable {
   @FXML
   GridPane gridPane;
 
-  private Connect4Board board = new Connect4Board();
-  private Connect4GameLogic gameLogic = new Connect4GameLogic();
-  private Connect4Player player1 = new Connect4Player("Player 1", 'R');
-  private Connect4Player player2 = new Connect4Player("Player 2", 'Y');
-  private Connect4Player currentPlayer = player1;
+  private C4Board board = new C4Board();
+  private C4Logic gameLogic = new C4Logic();
+  private C4Player player1 = new C4Player("Player 1", 'R');
+  private C4Player player2 = new C4Player("Player 2", 'Y');
+  private C4Player currentPlayer = player1;
   private Circle[][] circles = new Circle[rows][columns];
 
   @Override
@@ -187,7 +187,7 @@ public class GuiPvEcontroller implements Initializable {
    * "Restart" button restarts the game.
    */
   public void restart() {
-    board = new Connect4Board();
+    board = new C4Board();
     currentPlayer = player1;
 
     for (int row = 0; row < rows; row++) {

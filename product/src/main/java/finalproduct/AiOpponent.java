@@ -1,4 +1,4 @@
-package main;
+package finalproduct;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package main;
+package banditpoc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class BanditMain {
   /**
    * This method initiates the Bandit Problem classes and runs them, printing out the results.
    */
-  public void run() {
+  public static void main(String[] args) {
     int totalRounds = 100;
     final int epsilon = 10;
     System.out.println("Total rounds: " + totalRounds);

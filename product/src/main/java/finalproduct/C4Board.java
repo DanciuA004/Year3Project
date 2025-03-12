@@ -1,9 +1,9 @@
-package main;
+package finalproduct;
 
 /**
  * A class for the board that the game will be played in.
  */
-public class Connect4Board {
+public class C4Board {
   char[][] grid;
   final int rows = 6;
   final int columns = 7;
@@ -11,7 +11,7 @@ public class Connect4Board {
   /**
    * Constructor to initialise the grid.
    */
-  public Connect4Board() {
+  public C4Board() {
     grid = new char[rows][columns];
     // Fill the grid with empty spaces
     for (int r = 0; r < rows; r++) {
@@ -25,9 +25,9 @@ public class Connect4Board {
    * Drops a disc into a column on the board.
    *
    * @param column The column where the disc will be dropped.
-   * @param disc   The disc to be dropped (e.g., "R" or "Y").
-   * @return true if the disc was successfully dropped, false if the column
-   *         invalid.
+   * @param disc The disc to be dropped (e.g., "R" or "Y").
+   * @return true if the disc was successfully dropped, 
+   *         false if the column is invalid.
    */
   public int dropDisc(int column, char disc) {
     if (column < 0 || column >= columns) {
