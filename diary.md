@@ -1,4 +1,10 @@
 # Diary
+### Wednesday the 12th of March 2025
+Started work on monte-carlo implementation. Rough tree structure and methods implemented. Completed layout of final report. 
+
+### Teusday the 11th of March 2025
+Had meeting with supervisor, explaid how to do code furhter and got details on final report. 
+
 ### Saturday the 1st of March 2025
 Added more to bibliography and created rough draft of Monte-Carlo section in report,
 Added AI opponent that drops disc in random column 0-6.
