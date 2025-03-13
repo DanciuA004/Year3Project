@@ -31,7 +31,6 @@ public class GuiPvEcontroller implements Initializable {
   private Stage stage;
   private Scene scene;
   private Parent root;
-  private AiOpponent aiOp = new AiOpponent();
 
   private final int rows = 6;
   private final int columns = 7;
@@ -46,6 +45,7 @@ public class GuiPvEcontroller implements Initializable {
   private C4Player player1 = new C4Player("Player 1", 'R');
   private C4Player player2 = new C4Player("Player 2", 'Y');
   private C4Player currentPlayer = player1;
+  private McTreeNode aiOp = new McTreeNode(board, currentPlayer);
   private Circle[][] circles = new Circle[rows][columns];
 
   @Override

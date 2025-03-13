@@ -2,21 +2,22 @@ package finalproduct;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * This class hold the tree structure used for the monte-carlo algorithm.
  */
 public class McTreeNode {
-  C4Board board; // Current game state
-  List<McTreeNode> children; // List of child nodes
-  int visits; // Number of times this node was visited
-  double wins; // Number of wins from this node
-  char currentPlayer; // Player ('R' or 'Y') who made the last move
+  private C4Board board; // Current game state
+  private List<McTreeNode> children; // List of child nodes
+  private int visits; // Number of times this node was visited
+  private double wins; // Number of wins from this node
+  private C4Player currentPlayer; // Player ('R' or 'Y') who made the last move
 
   /**
    * Constructor to initialise a node.
    */
-  public McTreeNode(C4Board board, char currentPlayer) {
+  public McTreeNode(C4Board board, C4Player currentPlayer) {
     this.board = board;
     this.currentPlayer = currentPlayer;
     this.children = new ArrayList<>();
@@ -24,6 +25,16 @@ public class McTreeNode {
     this.wins = 0.0;
   }
 
+  /**
+   * This method handles the turn for the AI opponent.
+   *
+   * @return returns the column the disc will be dropped into.
+   */
+  public int play() {
+    Random random = new Random();
+    return random.nextInt(7);
+  }
+  
   /**
    * This method uses the UCB method to pick the next best node in the tree.
    */
@@ -35,7 +46,13 @@ public class McTreeNode {
    * Expands the tree with the next possible moves, disc drop in column 0-6.
    */
   public void expand() {
-
+    for (int i = 0; i <= 6; i++) {
+      C4Board boardCopy = new C4Board();
+      boardCopy = board;
+      boardCopy.dropDisc(i, currentPlayer.getDisc());
+      McTreeNode node = new McTreeNode(boardCopy, currentPlayer);
+      children.add(node);
+    }
   }
 
   /**

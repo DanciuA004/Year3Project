@@ -42,4 +42,23 @@ public class C4Board {
     }
     return -1; // Column is full
   }
+  
+  /**
+   * Displays the Connect 4 board to the console. Used for testing.
+   */
+  public void displayBoard() {
+    for (int r = 0; r < rows; r++) {
+      // Print each row with | separating columns
+      for (int c = 0; c < columns; c++) {
+        System.out.print("|" + grid[r][c]);
+      }
+      System.out.println("|"); // Close the row
+    }
+
+    // Print the bottom border
+    for (int c = 0; c < columns; c++) {
+      System.out.print("--");
+    }
+    System.out.println("-");
+  }
 }
