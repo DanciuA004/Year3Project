@@ -1,4 +1,7 @@
 # Diary
+### Thursday the 13th of March 2025
+Worked on the expand method for the ai opponent. 
+
 ### Wednesday the 12th of March 2025
 Started work on monte-carlo implementation. Rough tree structure and methods implemented. Completed layout of final report. 
 
