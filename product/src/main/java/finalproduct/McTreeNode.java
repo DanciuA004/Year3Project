@@ -3,6 +3,7 @@ package finalproduct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import banditpoc.BanditArm;
 
 /**
  * This class hold the tree structure used for the monte-carlo algorithm.
@@ -10,10 +11,20 @@ import java.util.Random;
 public class McTreeNode {
   private C4Board board; // Current game state
   private List<McTreeNode> children; // List of child nodes
+  private List<Integer> totalPointsEachChild;
   private int visits; // Number of times this node was visited
-  private double wins; // Number of wins from this node
+  private int wins; // Number of wins from this node
   private C4Player currentPlayer; // Player ('R' or 'Y') who made the last move
+  int currentRound;
 
+  public int getVisits() {
+    return visits;
+  }
+  
+  public int getWins() {
+    return wins;
+  }
+  
   /**
    * Constructor to initialise a node.
    */
@@ -21,8 +32,9 @@ public class McTreeNode {
     this.board = board;
     this.currentPlayer = currentPlayer;
     this.children = new ArrayList<>();
+    this.totalPointsEachChild = new ArrayList<>();
     this.visits = 0;
-    this.wins = 0.0;
+    this.wins = 0;
   }
 
   /**
@@ -34,11 +46,43 @@ public class McTreeNode {
     Random random = new Random();
     return random.nextInt(7);
   }
-  
+
   /**
-   * This method uses the UCB method to pick the next best node in the tree.
+   * This method uses the UCB method to pick the next best node in the tree. it will go though all
+   * of the child nodes and collect their UCB value and then select the one with the highest and
+   * return it.
    */
-  public void select() {
+  public McTreeNode select() {
+    double maxUcb = Double.NEGATIVE_INFINITY;
+    McTreeNode selectedChild = null;
+
+    for (int i = 0; i < children.size(); i++) {
+      McTreeNode child = children.get(i);
+
+      if (child.getVisits() == 0) {
+        return child;
+      }
+
+      double meanReward = (double) totalPointsEachChild.get(i) / child.getVisits();
+      double confidenceInterval = Math.sqrt((2 * Math.log(currentRound + 1)) / child.getVisits());
+      double ucbValue = meanReward + confidenceInterval;
+
+      if (ucbValue > maxUcb) {
+        maxUcb = ucbValue;
+        selectedChild = child;
+      }
+    }
+    return selectedChild;
+
+  }
+
+  /**
+   * Calculates the UCB value for this node going off the number of visits and number of wins.
+   *
+   * @return the USB value
+   */
+  public double getUcb() {
+    return 0;
 
   }
 
@@ -56,16 +100,15 @@ public class McTreeNode {
   }
 
   /**
-   * For each of the next nodes added by the expand method, multiple simulations
-   * are run on them and a value is assigned.
+   * For each of the next nodes added by the expand method, multiple simulations are run on them and
+   * a value is assigned.
    */
   public void simulate() {
 
   }
 
   /**
-   * Takes the data from the simulation and goes back up the tree, updating all of
-   * the parent nodes.
+   * Takes the data from the simulation and goes back up the tree, updating all of the parent nodes.
    */
   public void backpropagation() {
 
