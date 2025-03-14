@@ -1,4 +1,7 @@
 # Diary
+### Friday the 14th of March 2025
+Copied UCB method over to select() and made it with work McTreeNode class
+
 ### Thursday the 13th of March 2025
 Worked on the expand method for the ai opponent. 
 
