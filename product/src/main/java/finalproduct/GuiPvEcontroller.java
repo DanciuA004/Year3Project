@@ -189,6 +189,7 @@ public class GuiPvEcontroller implements Initializable {
   public void restart() {
     board = new C4Board();
     currentPlayer = player1;
+    aiOp = new McTreeNode(board, currentPlayer);
 
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col < columns; col++) {

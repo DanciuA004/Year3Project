@@ -22,12 +22,26 @@ public class C4Board {
   }
 
   /**
+   * This method uses the arraycopy method to create a new board and copy the
+   * contents of the original board to the new one.
+   *
+   * @return the copy of the original board.
+   */
+  public C4Board copyBoard() {
+    C4Board boardCopy = new C4Board();
+    for (int r = 0; r < rows; r++) {
+      System.arraycopy(this.grid[r], 0, boardCopy.grid[r], 0, columns);
+    }
+    return boardCopy;
+  }
+
+  /**
    * Drops a disc into a column on the board.
    *
    * @param column The column where the disc will be dropped.
-   * @param disc The disc to be dropped (e.g., "R" or "Y").
-   * @return true if the disc was successfully dropped, 
-   *         false if the column is invalid.
+   * @param disc   The disc to be dropped (e.g., "R" or "Y").
+   * @return true if the disc was successfully dropped, false if the column is
+   *         invalid.
    */
   public int dropDisc(int column, char disc) {
     if (column < 0 || column >= columns) {
@@ -42,7 +56,7 @@ public class C4Board {
     }
     return -1; // Column is full
   }
-  
+
   /**
    * Displays the Connect 4 board to the console. Used for testing.
    */
