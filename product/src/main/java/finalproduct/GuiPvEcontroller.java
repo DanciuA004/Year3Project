@@ -117,9 +117,7 @@ public class GuiPvEcontroller implements Initializable {
         int column = aiOp.play();
         int row = board.dropDisc(column, currentPlayer.getDisc());
         updateGrid(row, column);
-
-        currentPlayer = player1;
-        labelPvP.setText("Player One, please select a column!");
+        switchPlayer();
       }));
       timeline.play(); 
 

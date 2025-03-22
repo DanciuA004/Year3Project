@@ -10,22 +10,10 @@ import java.util.Random;
 public class McTreeNode {
   private C4Board board; // Current game state
   private List<McTreeNode> children; // List of child nodes
-  private List<Integer> totalPointsEachChild;
+  private C4Player currentPlayer; // Player ('R' or 'Y') who made the last move
   private int visits; // Number of times this node was visited
   private int wins; // Number of wins from this node
-  private C4Player currentPlayer; // Player ('R' or 'Y') who made the last move
-  int currentRound;
-
-  /*
-   * To Do: 
-   * do getUCB() method, 
-   * fix select(), 
-   * clickColumn() fix user clicking while AI turn bug, 
-   * clickColumn() handle AI and User turns, 
-   * do simulate(), 
-   * do backpropagation(), 
-   * fix play();
-   */
+  private int currentRound;
 
   public int getVisits() {
     return visits;
@@ -44,11 +32,11 @@ public class McTreeNode {
    */
   public McTreeNode(C4Board board, C4Player currentPlayer) {
     this.board = board;
-    this.currentPlayer = currentPlayer;
     this.children = new ArrayList<>();
-    this.totalPointsEachChild = new ArrayList<>();
+    this.currentPlayer = currentPlayer;
     this.visits = 0;
     this.wins = 0;
+    this.currentRound = 0;
   }
 
   /**
@@ -57,7 +45,16 @@ public class McTreeNode {
    * @return returns the column the disc will be dropped into.
    */
   public int play() {
-    expand();
+    expand(board);
+
+    for (int i = 0; i < children.size(); i++) {
+      simulate(children.get(i));
+    }
+
+    System.out.println(getVisits());
+    System.out.println(getWins());
+    select(children).getBoard().displayBoard();
+
     Random random = new Random();
     return random.nextInt(7);
   }
@@ -67,7 +64,7 @@ public class McTreeNode {
    * will go though all of the child nodes and collect their UCB value and then
    * select the one with the highest and return it.
    */
-  public McTreeNode select() {
+  public McTreeNode select(List<McTreeNode> children) {
     double maxUcb = Double.NEGATIVE_INFINITY;
     McTreeNode selectedChild = null;
 
@@ -78,7 +75,7 @@ public class McTreeNode {
         return child;
       }
 
-      double meanReward = (double) totalPointsEachChild.get(i) / child.getVisits();
+      double meanReward = child.getWins() / child.getVisits();
       double confidenceInterval = Math.sqrt((2 * Math.log(currentRound + 1)) / child.getVisits());
       double ucbValue = meanReward + confidenceInterval;
 
@@ -92,22 +89,11 @@ public class McTreeNode {
   }
 
   /**
-   * Calculates the UCB value for this node going off the number of visits and
-   * number of wins.
-   *
-   * @return the USB value
-   */
-  public double getUcb() {
-    return 0;
-
-  }
-
-  /**
    * Expands the tree with the next possible moves, disc drop in column 0-6.
    */
-  public void expand() {
+  public void expand(C4Board board) {
     for (int i = 0; i <= 6; i++) {
-      C4Board boardCopy = board.copyBoard(); 
+      C4Board boardCopy = board.copyBoard();
       boardCopy.dropDisc(i, currentPlayer.getDisc());
 
       McTreeNode node = new McTreeNode(boardCopy, currentPlayer);
@@ -120,8 +106,10 @@ public class McTreeNode {
    * For each of the next nodes added by the expand method, multiple simulations
    * are run on them and a value is assigned.
    */
-  public void simulate() {
-
+  public void simulate(McTreeNode node) {
+    Random random = new Random();
+    node.visits++;
+    node.wins = node.wins + random.nextInt(1);
   }
 
   /**
