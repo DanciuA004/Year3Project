@@ -3,7 +3,6 @@ package finalproduct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import banditpoc.BanditArm;
 
 /**
  * This class hold the tree structure used for the monte-carlo algorithm.
@@ -17,12 +16,28 @@ public class McTreeNode {
   private C4Player currentPlayer; // Player ('R' or 'Y') who made the last move
   int currentRound;
 
+  /*
+   * To Do:
+   * fix expand(),
+   * do getUCB() method,
+   * fix select(),
+   * clickColumn() fix user clicking while AI turn bug,
+   * clickColumn() handle AI and User turns,
+   * do simulate(),
+   * do backpropagation(),
+   * fix play();
+   */
+  
   public int getVisits() {
     return visits;
   }
   
   public int getWins() {
     return wins;
+  }
+  
+  public C4Board getBoard() {
+    return board;
   }
   
   /**
@@ -43,6 +58,13 @@ public class McTreeNode {
    * @return returns the column the disc will be dropped into.
    */
   public int play() {
+    expand();
+    
+    for (int i = 0; i < children.size(); i++) {
+      System.out.println(children.get(i));
+      children.get(i).getBoard().displayBoard();
+  }
+    
     Random random = new Random();
     return random.nextInt(7);
   }
@@ -90,8 +112,9 @@ public class McTreeNode {
    * Expands the tree with the next possible moves, disc drop in column 0-6.
    */
   public void expand() {
+    C4Board boardCopy;
     for (int i = 0; i <= 6; i++) {
-      C4Board boardCopy = new C4Board();
+      boardCopy = new C4Board();
       boardCopy = board;
       boardCopy.dropDisc(i, currentPlayer.getDisc());
       McTreeNode node = new McTreeNode(boardCopy, currentPlayer);
