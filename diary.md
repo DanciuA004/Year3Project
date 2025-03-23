@@ -1,4 +1,10 @@
 # Diary
+### Sunday the 23rd of March 2025
+Added more methods to PVE controller to update the tree correctly. Added more concept code to McTreeNode to closer resemble the algorithm.
+
+### Saturday the 22nd of March 2025
+Worked with some concept code. Fixed the expand method to properly create copies and not just pointers to the original board. 
+
 ### Friday the 14th of March 2025
 Copied UCB method over to select() and made it with work McTreeNode class
 
