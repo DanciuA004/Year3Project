@@ -8,12 +8,22 @@ import java.util.Random;
  * This class hold the tree structure used for the monte-carlo algorithm.
  */
 public class McTreeNode {
-  private C4Board board; // Current game state
-  private List<McTreeNode> children; // List of child nodes
-  private C4Player currentPlayer; // Player ('R' or 'Y') who made the last move
-  private int visits; // Number of times this node was visited
-  private int wins; // Number of wins from this node
+  private C4Board board; // the board at the current node.
+  private List<McTreeNode> children; // the list of children, the next moves from this node.
+  private C4Player currentPlayer;
+  private int visits;
+  private int wins;
   private int currentRound;
+  private int column; // the column of last move that lead to this node.
+  private McTreeNode parent; // the parent of this node.
+
+  public C4Board getBoard() {
+    return board;
+  }
+
+  public List<McTreeNode> getChildren() {
+    return children;
+  }
 
   public int getVisits() {
     return visits;
@@ -23,40 +33,47 @@ public class McTreeNode {
     return wins;
   }
 
-  public C4Board getBoard() {
-    return board;
+  public int getColumn() {
+    return column;
   }
 
   /**
    * Constructor to initialise a node.
    */
-  public McTreeNode(C4Board board, C4Player currentPlayer) {
+  public McTreeNode(C4Board board, C4Player currentPlayer, int column, McTreeNode parent) {
     this.board = board;
     this.children = new ArrayList<>();
     this.currentPlayer = currentPlayer;
     this.visits = 0;
     this.wins = 0;
     this.currentRound = 0;
+    this.column = column;
+    this.parent = parent;
   }
 
   /**
-   * This method handles the turn for the AI opponent.
+   * This method handles the turn for the AI opponent. if no children are linked
+   * to this node the expand() method is called then for each child a number of
+   * simulation games are run once the simulation and backpropagation happens the
+   * select method can be run to pick the best node from the children and that is
+   * returned.
    *
    * @return returns the column the disc will be dropped into.
    */
   public int play() {
-    expand(board);
+
+    if (children.isEmpty()) {
+      expand(board);
+    }
 
     for (int i = 0; i < children.size(); i++) {
       simulate(children.get(i));
     }
 
-    System.out.println(getVisits());
+    System.out.println(getVisits()); // for testing to see how selection works.
     System.out.println(getWins());
-    select(children).getBoard().displayBoard();
 
-    Random random = new Random();
-    return random.nextInt(7);
+    return select(children).getColumn();
   }
 
   /**
@@ -65,7 +82,7 @@ public class McTreeNode {
    * select the one with the highest and return it.
    */
   public McTreeNode select(List<McTreeNode> children) {
-    double maxUcb = Double.NEGATIVE_INFINITY;
+    double maxUcb = Double.NEGATIVE_INFINITY; 
     McTreeNode selectedChild = null;
 
     for (int i = 0; i < children.size(); i++) {
@@ -75,7 +92,7 @@ public class McTreeNode {
         return child;
       }
 
-      double meanReward = child.getWins() / child.getVisits();
+      double meanReward = (double) child.getWins() / child.getVisits();
       double confidenceInterval = Math.sqrt((2 * Math.log(currentRound + 1)) / child.getVisits());
       double ucbValue = meanReward + confidenceInterval;
 
@@ -85,7 +102,6 @@ public class McTreeNode {
       }
     }
     return selectedChild;
-
   }
 
   /**
@@ -96,7 +112,7 @@ public class McTreeNode {
       C4Board boardCopy = board.copyBoard();
       boardCopy.dropDisc(i, currentPlayer.getDisc());
 
-      McTreeNode node = new McTreeNode(boardCopy, currentPlayer);
+      McTreeNode node = new McTreeNode(boardCopy, currentPlayer, i, this);
       children.add(node);
       boardCopy.displayBoard();
     }
@@ -107,16 +123,29 @@ public class McTreeNode {
    * are run on them and a value is assigned.
    */
   public void simulate(McTreeNode node) {
+    
+    // this is a rough implementation used for testing.
     Random random = new Random();
     node.visits++;
-    node.wins = node.wins + random.nextInt(1);
+    boolean won = random.nextBoolean(); // Simulated win condition
+    if (won) {
+      node.wins++;
+    }
+    node.backpropagation(won);
   }
 
   /**
    * Takes the data from the simulation and goes back up the tree, updating all of
    * the parent nodes.
    */
-  public void backpropagation() {
-
+  public void backpropagation(boolean won) {
+    McTreeNode node = this;
+    while (node != null) {
+      node.visits++;
+      if (won) {
+        node.wins++;
+      }
+      node = node.parent;
+    }
   }
 }

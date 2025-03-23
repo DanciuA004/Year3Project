@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +46,7 @@ public class GuiPvEcontroller implements Initializable {
   private C4Player player1 = new C4Player("Player 1", 'R');
   private C4Player player2 = new C4Player("Player 2", 'Y');
   private C4Player currentPlayer = player1;
-  private McTreeNode aiOp = new McTreeNode(board, currentPlayer);
+  private McTreeNode mctsRoot;
   private Circle[][] circles = new Circle[rows][columns];
 
   @Override
@@ -60,6 +61,7 @@ public class GuiPvEcontroller implements Initializable {
         gridPane.add(circle, col, row);
       }
     }
+    mctsRoot = new McTreeNode(board, player2, -1, null);
   }
 
   /**
@@ -73,24 +75,31 @@ public class GuiPvEcontroller implements Initializable {
     // checks through all seven column IDs a drops disc into correct column.
     if (eventSource.equals("Button[id=buttonColumn1, styleClass=button]''")) {
       int row = board.dropDisc(0, currentPlayer.getDisc());
+      updateMctsTree(0);
       updateGrid(row, 0);
     } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
       int row = board.dropDisc(1, currentPlayer.getDisc());
+      updateMctsTree(1);
       updateGrid(row, 1);
     } else if (eventSource.equals("Button[id=buttonColumn3, styleClass=button]''")) {
       int row = board.dropDisc(2, currentPlayer.getDisc());
+      updateMctsTree(2);
       updateGrid(row, 2);
     } else if (eventSource.equals("Button[id=buttonColumn4, styleClass=button]''")) {
       int row = board.dropDisc(3, currentPlayer.getDisc());
+      updateMctsTree(3);
       updateGrid(row, 3);
     } else if (eventSource.equals("Button[id=buttonColumn5, styleClass=button]''")) {
       int row = board.dropDisc(4, currentPlayer.getDisc());
+      updateMctsTree(4);
       updateGrid(row, 4);
     } else if (eventSource.equals("Button[id=buttonColumn6, styleClass=button]''")) {
       int row = board.dropDisc(5, currentPlayer.getDisc());
+      updateMctsTree(5);
       updateGrid(row, 5);
     } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
       int row = board.dropDisc(6, currentPlayer.getDisc());
+      updateMctsTree(6);
       updateGrid(row, 6);
     }
 
@@ -100,7 +109,6 @@ public class GuiPvEcontroller implements Initializable {
     } else if (gameLogic.checkDraw(board)) {
       displayDraw();
     }
-
     switchPlayer();
   }
 
@@ -110,20 +118,52 @@ public class GuiPvEcontroller implements Initializable {
   public void switchPlayer() {
     if (currentPlayer == player1) {
       currentPlayer = player2;
-      labelPvP.setText("AI Opponents Turn!");
-
+      labelPvP.setText("AI Opponent's Turn!");
 
       Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
-        int column = aiOp.play();
+        int column = mctsRoot.play();
         int row = board.dropDisc(column, currentPlayer.getDisc());
         updateGrid(row, column);
+
+        // checks if there is a win condition and sends an alert.
+        if (gameLogic.checkWin(board)) {
+          displayWin();
+        } else if (gameLogic.checkDraw(board)) {
+          displayDraw();
+        }
+
+        for (McTreeNode child : mctsRoot.getChildren()) {
+          if (child.getColumn() == column) {
+            mctsRoot = child;
+            break;
+          }
+        }
         switchPlayer();
       }));
-      timeline.play(); 
-
-    } else if (currentPlayer == player2) {
+      timeline.play();
+    } else {
       currentPlayer = player1;
       labelPvP.setText("Player One, please select a column!");
+    }
+  }
+
+  /**
+   * Updates the MCTS tree after the player's move.
+   */
+  private void updateMctsTree(int selectedColumn) {
+    McTreeNode nextRoot = null;
+
+    for (McTreeNode child : mctsRoot.getChildren()) {
+      if (child.getColumn() == selectedColumn) {
+        nextRoot = child;
+        break;
+      }
+    }
+
+    if (nextRoot != null) {
+      mctsRoot = nextRoot;
+    } else {
+      mctsRoot = new McTreeNode(board, player2, -1, null);
     }
   }
 
@@ -145,26 +185,36 @@ public class GuiPvEcontroller implements Initializable {
    * Shows an alert box displaying the winner.
    */
   public void displayWin() {
-    Alert alertWin = new Alert(AlertType.INFORMATION);
-    alertWin.setTitle("Winner!");
-    alertWin.setHeaderText("The Winner is: " + currentPlayer.getName());
-    alertWin.setContentText("The game will now restart");
-    if (alertWin.showAndWait().get() == ButtonType.OK) {
-      restart();
-    }
+    Timeline delay = new Timeline(new KeyFrame(Duration.millis(500), e -> {
+      Platform.runLater(() -> {
+        Alert alertWin = new Alert(AlertType.INFORMATION);
+        alertWin.setTitle("Winner!");
+        alertWin.setHeaderText("The Winner is: " + currentPlayer.getName());
+        alertWin.setContentText("The game will now restart");
+
+        if (alertWin.showAndWait().get() == ButtonType.OK) {
+          restart();
+        }
+      });
+    }));
+    delay.setCycleCount(1);
+    delay.play();
   }
 
   /**
    * Shows an alert box displaying draw condition.
    */
   public void displayDraw() {
-    Alert alertDraw = new Alert(AlertType.INFORMATION);
-    alertDraw.setTitle("Draw!");
-    alertDraw.setHeaderText("No Winner! There is a draw!");
-    alertDraw.setContentText("The game will now restart");
-    if (alertDraw.showAndWait().get() == ButtonType.OK) {
-      restart();
-    }
+    Platform.runLater(() -> {
+      Alert alertDraw = new Alert(AlertType.INFORMATION);
+      alertDraw.setTitle("Draw!");
+      alertDraw.setHeaderText("No Winner! There is a draw!");
+      alertDraw.setContentText("The game will now restart");
+
+      if (alertDraw.showAndWait().get() == ButtonType.OK) {
+        restart();
+      }
+    });
   }
 
   /**
@@ -187,7 +237,7 @@ public class GuiPvEcontroller implements Initializable {
   public void restart() {
     board = new C4Board();
     currentPlayer = player1;
-    aiOp = new McTreeNode(board, currentPlayer);
+    mctsRoot = new McTreeNode(board, player2, -1, mctsRoot);
 
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col < columns; col++) {
