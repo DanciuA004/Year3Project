@@ -1,4 +1,7 @@
 # Diary
+### Wednesday the 2nd of April 2025
+Continued work on the report. Re-done chapers 1,2 and 3. 
+
 ### Teusday the 1st of April 2025
 Worked on final year report. Set up meeting with supervisor for Thursday. 
 
