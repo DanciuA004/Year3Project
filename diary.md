@@ -1,4 +1,7 @@
 # Diary
+### Monday the 7th of April 2025
+Finished code, working on fixing many logic errors in code. 
+
 ### Wednesday the 2nd of April 2025
 Continued work on the report. Re-done chapers 1,2 and 3. 
 
