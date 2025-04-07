@@ -82,7 +82,7 @@ public class McTreeNode {
    * select the one with the highest and return it.
    */
   public McTreeNode select(List<McTreeNode> children) {
-    double maxUcb = Double.NEGATIVE_INFINITY; 
+    double maxUcb = Double.NEGATIVE_INFINITY;
     McTreeNode selectedChild = null;
 
     for (int i = 0; i < children.size(); i++) {
@@ -120,10 +120,28 @@ public class McTreeNode {
 
   /**
    * For each of the next nodes added by the expand method, multiple simulations
-   * are run on them and a value is assigned.
+   * are run on them and a value is assigned. Random discs are dropped by yellow
+   * and red until someone wins, if yellow wins the AI wins counter gets
+   * increased.
    */
   public void simulate(McTreeNode node) {
+
+    // create copy of the board in the given node,
     
+    // create player 1 and 2,
+
+    // for 10 runs
+    
+    // while checkWin() and checkDraw() are false,
+
+    // the current player will drop a disc in a random column
+    
+    // if checkWin() true and current player is player2
+    
+    // then wins++
+    
+    // switch player
+
     // this is a rough implementation used for testing.
     Random random = new Random();
     node.visits++;
