@@ -1,5 +1,6 @@
 package finalproduct;
 
+import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,13 +41,14 @@ public class McTreeNode {
   /**
    * Constructor to initialise a node.
    */
-  public McTreeNode(C4Board board, C4Player currentPlayer, int column, McTreeNode parent) {
+  public McTreeNode(C4Board board, C4Player currentPlayer, int currentRound, 
+      int column, McTreeNode parent) {
     this.board = board;
     this.children = new ArrayList<>();
     this.currentPlayer = currentPlayer;
     this.visits = 0;
     this.wins = 0;
-    this.currentRound = 0;
+    this.currentRound = currentRound;
     this.column = column;
     this.parent = parent;
   }
@@ -61,15 +63,18 @@ public class McTreeNode {
    * @return returns the column the disc will be dropped into.
    */
   public int play() {
-
     if (children.isEmpty()) {
       expand(board);
     }
 
     for (int i = 0; i < children.size(); i++) {
       simulate(children.get(i));
+      System.out.println(children.get(i).getVisits());
+      System.out.println(children.get(i).getWins());
     }
 
+    System.out.println("currentRound: " + currentRound + "\n");
+    
     System.out.println(getVisits()); // for testing to see how selection works.
     System.out.println(getWins());
 
@@ -114,7 +119,7 @@ public class McTreeNode {
         C4Board boardCopy = board.copyBoard();
         boardCopy.dropDisc(i, currentPlayer.getDisc());
 
-        McTreeNode node = new McTreeNode(boardCopy, currentPlayer, i, this);
+        McTreeNode node = new McTreeNode(boardCopy, currentPlayer, currentRound, i, this);
         children.add(node);
         boardCopy.displayBoard();
       }
@@ -140,8 +145,8 @@ public class McTreeNode {
     C4Player currentSimPlayer = simPlayer2;
 
     // for 10 runs
-    for (int i = 0; i <= 100; i++) {
-      C4Board simBoardCopy = node.getBoard().copyBoard();
+    for (int i = 0; i < 10000; i++) {
+      C4Board simBoardCopy = simBoard.copyBoard();
       // while checkWin() and checkDraw() are false,
       while (!gameLogic.checkWin(simBoardCopy) && !gameLogic.checkDraw(simBoardCopy)) {
 
@@ -156,6 +161,8 @@ public class McTreeNode {
           break;
         }
 
+        node.visits++;
+        
         // switch player
         if (currentSimPlayer == simPlayer1) {
           currentSimPlayer = simPlayer2;
@@ -175,7 +182,7 @@ public class McTreeNode {
     McTreeNode node = this;
     while (node != null) {
       node.visits++;
-
+      
       node = node.parent;
     }
   }

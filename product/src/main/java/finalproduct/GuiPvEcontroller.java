@@ -46,7 +46,8 @@ public class GuiPvEcontroller implements Initializable {
   private C4Player player1 = new C4Player("Player 1", 'R');
   private C4Player player2 = new C4Player("Player 2", 'Y');
   private C4Player currentPlayer = player1;
-  private McTreeNode mctsRoot;
+  private int currentRound = 0;
+  private McTreeNode mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
   private Circle[][] circles = new Circle[rows][columns];
 
   @Override
@@ -61,7 +62,6 @@ public class GuiPvEcontroller implements Initializable {
         gridPane.add(circle, col, row);
       }
     }
-    mctsRoot = new McTreeNode(board, player2, -1, null);
   }
 
   /**
@@ -120,7 +120,7 @@ public class GuiPvEcontroller implements Initializable {
       currentPlayer = player2;
       labelPvP.setText("AI Opponent's Turn!");
 
-      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
         int column = mctsRoot.play();
         int row = board.dropDisc(column, currentPlayer.getDisc());
         updateGrid(row, column);
@@ -139,11 +139,13 @@ public class GuiPvEcontroller implements Initializable {
           }
         }
         switchPlayer();
+        currentRound++;
       }));
       timeline.play();
     } else {
       currentPlayer = player1;
       labelPvP.setText("Player One, please select a column!");
+      currentRound++;
     }
   }
 
@@ -163,7 +165,8 @@ public class GuiPvEcontroller implements Initializable {
     if (nextRoot != null) {
       mctsRoot = nextRoot;
     } else {
-      mctsRoot = new McTreeNode(board, player2, -1, null);
+      mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
+      //mctsRoot.expand(board);
     }
   }
 
@@ -237,7 +240,8 @@ public class GuiPvEcontroller implements Initializable {
   public void restart() {
     board = new C4Board();
     currentPlayer = player1;
-    mctsRoot = new McTreeNode(board, player2, -1, mctsRoot);
+    currentRound = 0;
+    mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
 
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col < columns; col++) {
