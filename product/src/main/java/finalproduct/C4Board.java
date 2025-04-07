@@ -58,6 +58,16 @@ public class C4Board {
   }
 
   /**
+   * This method simply returns a boolean checking whether the column is full.
+   *
+   * @param column the column that needs to be checked whether a disc can be dropped or not
+   * @return boolean whether its full or not.
+   */
+  public boolean isValidMove(int column) {
+    return grid[0][column] == 0;
+  }
+
+  /**
    * Displays the Connect 4 board to the console. Used for testing.
    */
   public void displayBoard() {

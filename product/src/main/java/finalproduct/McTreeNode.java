@@ -109,12 +109,15 @@ public class McTreeNode {
    */
   public void expand(C4Board board) {
     for (int i = 0; i <= 6; i++) {
-      C4Board boardCopy = board.copyBoard();
-      boardCopy.dropDisc(i, currentPlayer.getDisc());
+      // Check if the column is a valid move before expanding
+      if (board.isValidMove(i)) {
+        C4Board boardCopy = board.copyBoard();
+        boardCopy.dropDisc(i, currentPlayer.getDisc());
 
-      McTreeNode node = new McTreeNode(boardCopy, currentPlayer, i, this);
-      children.add(node);
-      boardCopy.displayBoard();
+        McTreeNode node = new McTreeNode(boardCopy, currentPlayer, i, this);
+        children.add(node);
+        boardCopy.displayBoard();
+      }
     }
   }
 
@@ -127,42 +130,52 @@ public class McTreeNode {
   public void simulate(McTreeNode node) {
 
     // create copy of the board in the given node,
-    
+    C4Board simBoard = node.getBoard().copyBoard();
+    C4Logic gameLogic = new C4Logic();
+    Random random = new Random();
+
     // create player 1 and 2,
+    C4Player simPlayer1 = new C4Player("Player 1", 'R');
+    C4Player simPlayer2 = new C4Player("Player 2", 'Y');
+    C4Player currentSimPlayer = simPlayer2;
 
     // for 10 runs
-    
-    // while checkWin() and checkDraw() are false,
+    for (int i = 0; i <= 100; i++) {
+      C4Board simBoardCopy = node.getBoard().copyBoard();
+      // while checkWin() and checkDraw() are false,
+      while (!gameLogic.checkWin(simBoardCopy) && !gameLogic.checkDraw(simBoardCopy)) {
 
-    // the current player will drop a disc in a random column
-    
-    // if checkWin() true and current player is player2
-    
-    // then wins++
-    
-    // switch player
+        // the current player will drop a disc in a random column
+        int randomColumn = random.nextInt(7);
+        simBoardCopy.dropDisc(randomColumn, currentSimPlayer.getDisc());
 
-    // this is a rough implementation used for testing.
-    Random random = new Random();
-    node.visits++;
-    boolean won = random.nextBoolean(); // Simulated win condition
-    if (won) {
-      node.wins++;
+        // if checkWin() true and current player is player2
+        if (gameLogic.checkWin(simBoardCopy) && currentSimPlayer == simPlayer2) {
+          // then wins++
+          node.wins++;
+          break;
+        }
+
+        // switch player
+        if (currentSimPlayer == simPlayer1) {
+          currentSimPlayer = simPlayer2;
+        } else {
+          currentSimPlayer = simPlayer1;
+        }
+      }
     }
-    node.backpropagation(won);
+    node.backpropagation(node.wins);
   }
 
   /**
    * Takes the data from the simulation and goes back up the tree, updating all of
    * the parent nodes.
    */
-  public void backpropagation(boolean won) {
+  public void backpropagation(int wins) {
     McTreeNode node = this;
     while (node != null) {
       node.visits++;
-      if (won) {
-        node.wins++;
-      }
+
       node = node.parent;
     }
   }
