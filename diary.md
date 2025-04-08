@@ -1,4 +1,8 @@
 # Diary
+### Teusday the 8th of April 2025
+Finished code, polished off all logic errors in code.
+Refactorised code and comments.
+
 ### Monday the 7th of April 2025
 Finished code, working on fixing many logic errors in code. 
 
