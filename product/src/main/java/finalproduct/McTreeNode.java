@@ -68,14 +68,11 @@ public class McTreeNode {
 
     for (int i = 0; i < children.size(); i++) {
       simulate(children.get(i));
-      System.out.println(children.get(i).getVisits());
-      System.out.println(children.get(i).getWins());
+      System.out.println("visits: " + children.get(i).getVisits()); // console print for debugging
+      System.out.println("wins: " + children.get(i).getWins()); // console print for debugging
     }
 
-    System.out.println("currentRound: " + currentRound + "\n");
-    
-    System.out.println(getVisits()); // for testing to see how selection works.
-    System.out.println(getWins());
+    System.out.println("\ncurrentRound: " + currentRound + "\n"); // console print for debugging
 
     return select(children).getColumn();
   }
@@ -113,12 +110,18 @@ public class McTreeNode {
    */
   public void expand(C4Board board) {
     for (int i = 0; i <= 6; i++) {
-      // Check if the column is a valid move before expanding
       if (board.isValidMove(i)) {
         C4Board boardCopy = board.copyBoard();
         boardCopy.dropDisc(i, currentPlayer.getDisc());
 
         McTreeNode node = new McTreeNode(boardCopy, currentPlayer, currentRound, i, this);
+
+        // Immediately reward winning moves before simulation
+        C4Logic gameLogic = new C4Logic();
+        if (gameLogic.checkWin(boardCopy)) {
+          node.wins = 10000; // Set an artificially high win count
+        }
+
         children.add(node);
         boardCopy.displayBoard();
       }
@@ -154,10 +157,15 @@ public class McTreeNode {
         simBoardCopy.dropDisc(randomColumn, currentSimPlayer.getDisc());
 
         // if checkWin() true and current player is player2
-        if (gameLogic.checkWin(simBoardCopy) && currentSimPlayer == simPlayer2) {
-          // then wins++
-          node.wins++;
-          break;
+        if (gameLogic.checkWin(simBoardCopy)) {
+          if (currentSimPlayer == simPlayer2) {
+            // then wins++
+            node.wins++;
+            break;
+          } else {
+            node.wins--;
+            break;
+          }
         }
 
         // switch player
@@ -176,11 +184,13 @@ public class McTreeNode {
    * Takes the data from the simulation and goes back up the tree, updating all of
    * the parent nodes.
    */
-  public void backpropagation(int wins) {
-    McTreeNode node = this.parent;
+  public void backpropagation(int result) {
+    McTreeNode node = this;
     while (node != null) {
       node.visits++;
-      node.wins += wins;
+      if (result > 0) {
+        node.wins++; // Only increment for a win
+      }
       node = node.parent;
     }
   }

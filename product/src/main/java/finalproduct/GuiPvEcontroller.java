@@ -112,13 +112,13 @@ public class GuiPvEcontroller implements Initializable {
         updateGrid(row, 6);
       }
 
-      // checks if there is a win condition and sends an alert.
+      // checks if there is a win or draw condition and sends an alert.
       if (gameLogic.checkWin(board)) {
         displayWin();
-        return;
+        return; // ensures the method ends here and the turn is not continued.
       } else if (gameLogic.checkDraw(board)) {
         displayDraw();
-        return;
+        return; // ensures the method ends here and the turn is not continued.
       }
       switchPlayer();
     }
