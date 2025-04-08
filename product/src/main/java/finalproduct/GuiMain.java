@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * This class is where i will be testing the GUI for Connect4.
+ * This class is where the GUI is initialised. 
  */
 public class GuiMain extends Application {
 

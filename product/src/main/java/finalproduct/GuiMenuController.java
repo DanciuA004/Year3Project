@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 /**
  * This is a controller class that will implements all of the functions for the
- * assets on the menu stage.
+ * assets on the Menu stage.
  */
 public class GuiMenuController {
   private Stage stage;

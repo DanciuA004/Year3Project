@@ -20,8 +20,8 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
- * This is a controller class that will implements all of the functions for the assets on the PvP
- * stage.
+ * This is a controller class that will implements all of the functions for the
+ * assets on the PvP stage.
  */
 public class GuiPvPcontroller implements Initializable {
   private Stage stage;
@@ -30,6 +30,7 @@ public class GuiPvPcontroller implements Initializable {
 
   private final int rows = 6;
   private final int columns = 7;
+  private Circle[][] circles = new Circle[rows][columns];
 
   @FXML
   private Label labelPvP;
@@ -41,8 +42,11 @@ public class GuiPvPcontroller implements Initializable {
   private C4Player player1 = new C4Player("Player 1", 'R');
   private C4Player player2 = new C4Player("Player 2", 'Y');
   private C4Player currentPlayer = player1;
-  private Circle[][] circles = new Circle[rows][columns];
 
+  /**
+   * Initialises the GUI grid with white circles to represent the slots in the
+   * game table.
+   */
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     for (int row = 0; row < rows; row++) {
@@ -58,7 +62,9 @@ public class GuiPvPcontroller implements Initializable {
   }
 
   /**
-   * When a column is clicked a disc is dropped.
+   * When a column is clicked a disc is dropped in that column.
+   *
+   * @param event the variable that holds the type of event.
    */
   public void clickColumn(ActionEvent event) {
 
@@ -69,21 +75,27 @@ public class GuiPvPcontroller implements Initializable {
     if (eventSource.equals("Button[id=buttonColumn1, styleClass=button]''")) {
       int row = board.dropDisc(0, currentPlayer.getDisc());
       updateGrid(row, 0);
+      
     } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
       int row = board.dropDisc(1, currentPlayer.getDisc());
       updateGrid(row, 1);
+      
     } else if (eventSource.equals("Button[id=buttonColumn3, styleClass=button]''")) {
       int row = board.dropDisc(2, currentPlayer.getDisc());
       updateGrid(row, 2);
+      
     } else if (eventSource.equals("Button[id=buttonColumn4, styleClass=button]''")) {
       int row = board.dropDisc(3, currentPlayer.getDisc());
       updateGrid(row, 3);
+      
     } else if (eventSource.equals("Button[id=buttonColumn5, styleClass=button]''")) {
       int row = board.dropDisc(4, currentPlayer.getDisc());
       updateGrid(row, 4);
+      
     } else if (eventSource.equals("Button[id=buttonColumn6, styleClass=button]''")) {
       int row = board.dropDisc(5, currentPlayer.getDisc());
       updateGrid(row, 5);
+      
     } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
       int row = board.dropDisc(6, currentPlayer.getDisc());
       updateGrid(row, 6);
@@ -92,8 +104,10 @@ public class GuiPvPcontroller implements Initializable {
     // checks if there is a win condition and sends an alert.
     if (gameLogic.checkWin(board)) {
       displayWin();
+      return;
     } else if (gameLogic.checkDraw(board)) {
       displayDraw();
+      return;
     }
 
     // switches current player and label

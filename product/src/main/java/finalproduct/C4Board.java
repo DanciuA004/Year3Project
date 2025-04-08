@@ -22,7 +22,7 @@ public class C4Board {
   }
 
   /**
-   * This method uses the arraycopy method to create a new board and copy the
+   * This method uses the built-in arraycopy method to create a new board and copy the
    * contents of the original board to the new one.
    *
    * @return the copy of the original board.

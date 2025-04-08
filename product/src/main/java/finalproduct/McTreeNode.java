@@ -8,7 +8,7 @@ import java.util.Random;
  * This class hold the tree structure used for the monte-carlo algorithm.
  */
 public class McTreeNode {
-  private C4Board board; // the board at the current node.
+  private C4Board board;
   private List<McTreeNode> children; // the list of children, the next moves from this node.
   private C4Player currentPlayer;
   private int visits;
@@ -116,10 +116,11 @@ public class McTreeNode {
 
         McTreeNode node = new McTreeNode(boardCopy, currentPlayer, currentRound, i, this);
 
-        // Immediately reward winning moves before simulation
+        // Immediately reward winning moves before simulation.
+        // Ensures the AI takes the next winning move.
         C4Logic gameLogic = new C4Logic();
         if (gameLogic.checkWin(boardCopy)) {
-          node.wins = 10000; // Set an artificially high win count
+          node.wins = 10000; // Set max win count.
         }
 
         children.add(node);
@@ -132,34 +133,26 @@ public class McTreeNode {
    * For each of the next nodes added by the expand method, multiple simulations
    * are run on them and a value is assigned. Random discs are dropped by yellow
    * and red until someone wins, if yellow wins the AI wins counter gets
-   * increased.
+   * increased, if red wins the AI win counter gets decreased.
    */
   public void simulate(McTreeNode node) {
-
-    // create copy of the board in the given node,
     C4Board simBoard = node.getBoard().copyBoard();
     C4Logic gameLogic = new C4Logic();
     Random random = new Random();
 
-    // create player 1 and 2,
     C4Player simPlayer1 = new C4Player("Player 1", 'R');
     C4Player simPlayer2 = new C4Player("Player 2", 'Y');
     C4Player currentSimPlayer = simPlayer2;
 
-    // for 10 runs
     for (int i = 0; i < 10000; i++) {
       C4Board simBoardCopy = simBoard.copyBoard();
-      // while checkWin() and checkDraw() are false,
       while (!gameLogic.checkWin(simBoardCopy) && !gameLogic.checkDraw(simBoardCopy)) {
 
-        // the current player will drop a disc in a random column
         int randomColumn = random.nextInt(7);
         simBoardCopy.dropDisc(randomColumn, currentSimPlayer.getDisc());
 
-        // if checkWin() true and current player is player2
         if (gameLogic.checkWin(simBoardCopy)) {
           if (currentSimPlayer == simPlayer2) {
-            // then wins++
             node.wins++;
             break;
           } else {
@@ -175,8 +168,10 @@ public class McTreeNode {
           currentSimPlayer = simPlayer1;
         }
       }
+      // increment visits ever for loop.
       node.visits++;
     }
+    // backpropogate the results at the end of the simulation.
     node.backpropagation(node.wins);
   }
 
@@ -184,13 +179,11 @@ public class McTreeNode {
    * Takes the data from the simulation and goes back up the tree, updating all of
    * the parent nodes.
    */
-  public void backpropagation(int result) {
-    McTreeNode node = this;
+  public void backpropagation(int wins) {
+    McTreeNode node = this.parent;
     while (node != null) {
       node.visits++;
-      if (result > 0) {
-        node.wins++; // Only increment for a win
-      }
+      node.wins += wins; 
       node = node.parent;
     }
   }

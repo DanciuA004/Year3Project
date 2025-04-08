@@ -28,7 +28,7 @@ import javafx.util.Duration;
  * assets on the PvE stage.
  */
 public class GuiPvEcontroller implements Initializable {
-  
+
   // GUI variables
   private Stage stage;
   private Scene scene;
@@ -53,7 +53,8 @@ public class GuiPvEcontroller implements Initializable {
   private McTreeNode mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
 
   /**
-   * Initialises the GUI grid with white circles to represent the slots in the game table. 
+   * Initialises the GUI grid with white circles to represent the slots in the
+   * game table.
    */
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
@@ -68,10 +69,11 @@ public class GuiPvEcontroller implements Initializable {
       }
     }
   }
-  
+
   /**
-   * When a column is clicked a disc is dropped, the MCTS tree is updated and the GUI is updated.
-   * There is then a check for a win or draw and the players are then swapped. 
+   * When a column is clicked a disc is dropped, the MCTS tree is updated and the
+   * GUI is updated. There is then a check for a win or draw and the players are
+   * then swapped.
    *
    * @param event the variable that holds the type of event.
    */
@@ -86,26 +88,32 @@ public class GuiPvEcontroller implements Initializable {
         int row = board.dropDisc(0, currentPlayer.getDisc());
         updateMctsTree(0);
         updateGrid(row, 0);
+
       } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
         int row = board.dropDisc(1, currentPlayer.getDisc());
         updateMctsTree(1);
         updateGrid(row, 1);
+
       } else if (eventSource.equals("Button[id=buttonColumn3, styleClass=button]''")) {
         int row = board.dropDisc(2, currentPlayer.getDisc());
         updateMctsTree(2);
         updateGrid(row, 2);
+
       } else if (eventSource.equals("Button[id=buttonColumn4, styleClass=button]''")) {
         int row = board.dropDisc(3, currentPlayer.getDisc());
         updateMctsTree(3);
         updateGrid(row, 3);
+
       } else if (eventSource.equals("Button[id=buttonColumn5, styleClass=button]''")) {
         int row = board.dropDisc(4, currentPlayer.getDisc());
         updateMctsTree(4);
         updateGrid(row, 4);
+
       } else if (eventSource.equals("Button[id=buttonColumn6, styleClass=button]''")) {
         int row = board.dropDisc(5, currentPlayer.getDisc());
         updateMctsTree(5);
         updateGrid(row, 5);
+
       } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
         int row = board.dropDisc(6, currentPlayer.getDisc());
         updateMctsTree(6);
@@ -132,7 +140,7 @@ public class GuiPvEcontroller implements Initializable {
       currentPlayer = player2;
       labelPvP.setText("AI Opponent's Turn!");
 
-      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> { // Adds a delay 
         int column = mctsRoot.play();
         int row = board.dropDisc(column, currentPlayer.getDisc());
         updateGrid(row, column);
@@ -140,12 +148,13 @@ public class GuiPvEcontroller implements Initializable {
         // checks if there is a win condition and sends an alert.
         if (gameLogic.checkWin(board)) {
           displayWin();
-          return;
+          return; // ensures the method ends here and the turn is not continued.
         } else if (gameLogic.checkDraw(board)) {
           displayDraw();
-          return;
+          return; // ensures the method ends here and the turn is not continued.
         }
 
+        // Updates the MCTS tree
         for (McTreeNode child : mctsRoot.getChildren()) {
           if (child.getColumn() == column) {
             mctsRoot = child;
@@ -156,6 +165,7 @@ public class GuiPvEcontroller implements Initializable {
         currentRound++;
       }));
       timeline.play();
+      
     } else {
       currentPlayer = player1;
       labelPvP.setText("Player One, please select a column!");
@@ -180,7 +190,6 @@ public class GuiPvEcontroller implements Initializable {
       mctsRoot = nextRoot;
     } else {
       mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
-      // mctsRoot.expand(board);
     }
   }
 

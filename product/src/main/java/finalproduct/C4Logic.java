@@ -1,8 +1,7 @@
 package finalproduct;
 
 /**
- * The class that holds the important methods for game logic, allowing the players to make moves and
- * validating to ensure they are correct and can be made.
+ * The class that holds the important methods for game logic, checking for wins and draws.
  */
 public class C4Logic {
 
@@ -46,7 +45,7 @@ public class C4Logic {
         }
       }
     }
-
+    
     // Check diagonal (top-left to bottom-right)
     for (int r = 0; r <= board.rows - 4; r++) { // Ensure enough space downwards
       for (int c = 0; c <= board.columns - 4; c++) { // Ensure enough space rightwards
@@ -57,7 +56,6 @@ public class C4Logic {
         }
       }
     }
-
     return false; // No win condition found
   }
 
