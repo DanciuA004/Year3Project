@@ -69,47 +69,49 @@ public class GuiPvEcontroller implements Initializable {
    */
   public void clickColumn(ActionEvent event) {
 
-    // contains the element that caused the event.
-    String eventSource = event.getSource().toString();
+    if (currentPlayer == player1) {
+      // contains the element that caused the event.
+      String eventSource = event.getSource().toString();
 
-    // checks through all seven column IDs a drops disc into correct column.
-    if (eventSource.equals("Button[id=buttonColumn1, styleClass=button]''")) {
-      int row = board.dropDisc(0, currentPlayer.getDisc());
-      updateMctsTree(0);
-      updateGrid(row, 0);
-    } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
-      int row = board.dropDisc(1, currentPlayer.getDisc());
-      updateMctsTree(1);
-      updateGrid(row, 1);
-    } else if (eventSource.equals("Button[id=buttonColumn3, styleClass=button]''")) {
-      int row = board.dropDisc(2, currentPlayer.getDisc());
-      updateMctsTree(2);
-      updateGrid(row, 2);
-    } else if (eventSource.equals("Button[id=buttonColumn4, styleClass=button]''")) {
-      int row = board.dropDisc(3, currentPlayer.getDisc());
-      updateMctsTree(3);
-      updateGrid(row, 3);
-    } else if (eventSource.equals("Button[id=buttonColumn5, styleClass=button]''")) {
-      int row = board.dropDisc(4, currentPlayer.getDisc());
-      updateMctsTree(4);
-      updateGrid(row, 4);
-    } else if (eventSource.equals("Button[id=buttonColumn6, styleClass=button]''")) {
-      int row = board.dropDisc(5, currentPlayer.getDisc());
-      updateMctsTree(5);
-      updateGrid(row, 5);
-    } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
-      int row = board.dropDisc(6, currentPlayer.getDisc());
-      updateMctsTree(6);
-      updateGrid(row, 6);
-    }
+      // checks through all seven column IDs a drops disc into correct column.
+      if (eventSource.equals("Button[id=buttonColumn1, styleClass=button]''")) {
+        int row = board.dropDisc(0, currentPlayer.getDisc());
+        updateMctsTree(0);
+        updateGrid(row, 0);
+      } else if (eventSource.equals("Button[id=buttonColumn2, styleClass=button]''")) {
+        int row = board.dropDisc(1, currentPlayer.getDisc());
+        updateMctsTree(1);
+        updateGrid(row, 1);
+      } else if (eventSource.equals("Button[id=buttonColumn3, styleClass=button]''")) {
+        int row = board.dropDisc(2, currentPlayer.getDisc());
+        updateMctsTree(2);
+        updateGrid(row, 2);
+      } else if (eventSource.equals("Button[id=buttonColumn4, styleClass=button]''")) {
+        int row = board.dropDisc(3, currentPlayer.getDisc());
+        updateMctsTree(3);
+        updateGrid(row, 3);
+      } else if (eventSource.equals("Button[id=buttonColumn5, styleClass=button]''")) {
+        int row = board.dropDisc(4, currentPlayer.getDisc());
+        updateMctsTree(4);
+        updateGrid(row, 4);
+      } else if (eventSource.equals("Button[id=buttonColumn6, styleClass=button]''")) {
+        int row = board.dropDisc(5, currentPlayer.getDisc());
+        updateMctsTree(5);
+        updateGrid(row, 5);
+      } else if (eventSource.equals("Button[id=buttonColumn7, styleClass=button]''")) {
+        int row = board.dropDisc(6, currentPlayer.getDisc());
+        updateMctsTree(6);
+        updateGrid(row, 6);
+      }
 
-    // checks if there is a win condition and sends an alert.
-    if (gameLogic.checkWin(board)) {
-      displayWin();
-    } else if (gameLogic.checkDraw(board)) {
-      displayDraw();
+      // checks if there is a win condition and sends an alert.
+      if (gameLogic.checkWin(board)) {
+        displayWin();
+      } else if (gameLogic.checkDraw(board)) {
+        displayDraw();
+      }
+      switchPlayer();
     }
-    switchPlayer();
   }
 
   /**
@@ -166,7 +168,7 @@ public class GuiPvEcontroller implements Initializable {
       mctsRoot = nextRoot;
     } else {
       mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
-      //mctsRoot.expand(board);
+      // mctsRoot.expand(board);
     }
   }
 
