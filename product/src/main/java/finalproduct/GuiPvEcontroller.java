@@ -3,7 +3,6 @@ package finalproduct;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -29,18 +28,22 @@ import javafx.util.Duration;
  * assets on the PvE stage.
  */
 public class GuiPvEcontroller implements Initializable {
+  
+  // GUI variables
   private Stage stage;
   private Scene scene;
   private Parent root;
 
   private final int rows = 6;
   private final int columns = 7;
+  private Circle[][] circles = new Circle[rows][columns];
 
   @FXML
   private Label labelPvP;
   @FXML
   GridPane gridPane;
 
+  // Game logic variables
   private C4Board board = new C4Board();
   private C4Logic gameLogic = new C4Logic();
   private C4Player player1 = new C4Player("Player 1", 'R');
@@ -48,8 +51,10 @@ public class GuiPvEcontroller implements Initializable {
   private C4Player currentPlayer = player1;
   private int currentRound = 0;
   private McTreeNode mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
-  private Circle[][] circles = new Circle[rows][columns];
 
+  /**
+   * Initialises the GUI grid with white circles to represent the slots in the game table. 
+   */
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     for (int row = 0; row < rows; row++) {
@@ -63,9 +68,12 @@ public class GuiPvEcontroller implements Initializable {
       }
     }
   }
-
+  
   /**
-   * When a column is clicked a disc is dropped.
+   * When a column is clicked a disc is dropped, the MCTS tree is updated and the GUI is updated.
+   * There is then a check for a win or draw and the players are then swapped. 
+   *
+   * @param event the variable that holds the type of event.
    */
   public void clickColumn(ActionEvent event) {
 
@@ -107,8 +115,10 @@ public class GuiPvEcontroller implements Initializable {
       // checks if there is a win condition and sends an alert.
       if (gameLogic.checkWin(board)) {
         displayWin();
+        return;
       } else if (gameLogic.checkDraw(board)) {
         displayDraw();
+        return;
       }
       switchPlayer();
     }
@@ -130,8 +140,10 @@ public class GuiPvEcontroller implements Initializable {
         // checks if there is a win condition and sends an alert.
         if (gameLogic.checkWin(board)) {
           displayWin();
+          return;
         } else if (gameLogic.checkDraw(board)) {
           displayDraw();
+          return;
         }
 
         for (McTreeNode child : mctsRoot.getChildren()) {

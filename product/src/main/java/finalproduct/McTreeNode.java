@@ -1,6 +1,5 @@
 package finalproduct;
 
-import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -161,8 +160,6 @@ public class McTreeNode {
           break;
         }
 
-        node.visits++;
-        
         // switch player
         if (currentSimPlayer == simPlayer1) {
           currentSimPlayer = simPlayer2;
@@ -170,6 +167,7 @@ public class McTreeNode {
           currentSimPlayer = simPlayer1;
         }
       }
+      node.visits++;
     }
     node.backpropagation(node.wins);
   }
@@ -179,10 +177,10 @@ public class McTreeNode {
    * the parent nodes.
    */
   public void backpropagation(int wins) {
-    McTreeNode node = this;
+    McTreeNode node = this.parent;
     while (node != null) {
       node.visits++;
-      
+      node.wins += wins;
       node = node.parent;
     }
   }
