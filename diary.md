@@ -1,4 +1,9 @@
 # Diary
+### Wednesday the 9th of April 2025
+Finishing report chapter 4 - 11.
+Completing demo video
+Completing final submission.
+
 ### Teusday the 8th of April 2025
 Finished code, polished off all logic errors in code.
 Refactorised code and comments.
