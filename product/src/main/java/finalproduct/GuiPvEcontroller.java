@@ -263,6 +263,7 @@ public class GuiPvEcontroller implements Initializable {
   public void restart() {
     board = new C4Board();
     currentPlayer = player1;
+    labelPvP.setText("Player One, please select a column!");
     currentRound = 0;
     mctsRoot = new McTreeNode(board, player2, currentRound, -1, null);
 
