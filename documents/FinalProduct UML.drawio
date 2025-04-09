@@ -1,0 +1,136 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="DUZUhnCX7IVd0-d6go6J">
+    <mxGraphModel dx="2931" dy="1758" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-1" value="C4Board" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="360" width="200" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-39" value="grid : char[][]&lt;div&gt;row : int&lt;/div&gt;&lt;div&gt;columns : int&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-1">
+          <mxGeometry y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-41" value="C4Board() : constructor&lt;div&gt;copyBoard() : C4Board&lt;/div&gt;&lt;div&gt;dropDisc(int column, char disc) : int&lt;/div&gt;&lt;div&gt;isValidMove(int column) : boolean&lt;/div&gt;&lt;div&gt;displayBoard() : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-1">
+          <mxGeometry y="120" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-2" value="C4Logic" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="640" width="240" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-37" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-2">
+          <mxGeometry y="40" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-38" value="checkWin(C4Board board) : boolean&lt;div&gt;checkDraw(C4Board board) : boolean&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-2">
+          <mxGeometry y="80" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-3" value="C4Player" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="980" y="120" width="280" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-43" value="name : String&lt;div&gt;disc : char&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-3">
+          <mxGeometry y="40" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-44" value="C4Player(String name, char disc) : constructor&lt;div&gt;getName() : String&lt;/div&gt;&lt;div&gt;getDisc() : char&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-3">
+          <mxGeometry y="120" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-4" target="kPm8jlnI1OiQ4i8xfv7z-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-4" value="GuiMain" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="360" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-27" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-4">
+          <mxGeometry y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-28" value="main()&lt;div&gt;start(Stage stage) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-4">
+          <mxGeometry y="80" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-5" target="kPm8jlnI1OiQ4i8xfv7z-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-5" target="kPm8jlnI1OiQ4i8xfv7z-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-5" value="GuiMenuController" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="240" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-30" value="stage : Stage&lt;div&gt;scene : Scene&lt;/div&gt;&lt;div&gt;root : Parent&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-5">
+          <mxGeometry y="40" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-33" value="switchToPvP(ActionEvent event) : void&lt;div&gt;switchToPvE(&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ActionEvent event&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) : void&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-5">
+          <mxGeometry y="120" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-65" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-7" target="kPm8jlnI1OiQ4i8xfv7z-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-66" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-7" target="kPm8jlnI1OiQ4i8xfv7z-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-67" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-7" target="kPm8jlnI1OiQ4i8xfv7z-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-7" value="GuiPvPcontroller" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="400" y="480" width="280" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-35" value="stage : Stage&lt;div&gt;scene : Scene&lt;/div&gt;&lt;div&gt;root : Parent&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;rows : int&lt;/div&gt;&lt;div&gt;columns : int&lt;/div&gt;&lt;div&gt;circle : Circles[][]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;labelPvP : Label&lt;/div&gt;&lt;div&gt;gridPane : GridPane&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;board : C4Board&lt;/div&gt;&lt;div&gt;gameLogic : C4Logic&lt;/div&gt;&lt;div&gt;player1 : C4Player&lt;/div&gt;&lt;div&gt;player2 : C4Player&lt;/div&gt;&lt;div&gt;currentPlayer : C4Player&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-7">
+          <mxGeometry y="40" width="280" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-36" value="initialize(URL arg0, ResourceBundle arg1) : void&lt;div&gt;clickColumn(&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ActionEvent event&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;updateGrid(int row, int col) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;displayWin() : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;displayDraw() : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;switchToMenu(ActionEvent event) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;restart() : void&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-7">
+          <mxGeometry y="280" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-8" target="kPm8jlnI1OiQ4i8xfv7z-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="-280" />
+              <mxPoint x="1400" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-8" target="kPm8jlnI1OiQ4i8xfv7z-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1360" y="-160" />
+              <mxPoint x="1360" y="475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-8" target="kPm8jlnI1OiQ4i8xfv7z-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="-40" />
+              <mxPoint x="1320" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-8" value="McTreeNode" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="720" y="-400" width="280" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-45" value="MAXSIMS : int&lt;div&gt;board : C4Board&lt;/div&gt;&lt;div&gt;children : List&amp;lt;McTreeNode&amp;gt;&lt;/div&gt;&lt;div&gt;currentPlayer : C4Player&lt;/div&gt;&lt;div&gt;visits : int&lt;/div&gt;&lt;div&gt;wins : int&lt;/div&gt;&lt;div&gt;currentRound : int&lt;/div&gt;&lt;div&gt;column : int&lt;/div&gt;&lt;div&gt;parent : McTreeNode&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-8">
+          <mxGeometry y="40" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-46" value="getBoard() : C4Board&lt;div&gt;getChildren() : List&amp;lt;McTreeNode&amp;gt;&lt;/div&gt;&lt;div&gt;getVisits() : int&lt;/div&gt;&lt;div&gt;getWins() : wins&lt;/div&gt;&lt;div&gt;getColumn() : column&lt;/div&gt;&lt;div&gt;McTreeNode(&lt;/div&gt;&lt;div&gt;C4Board board, C4Player player, int currentRound, int column, McTreeNode parent&lt;/div&gt;&lt;div&gt;) : constructor&lt;/div&gt;&lt;div&gt;play() : int&lt;/div&gt;&lt;div&gt;select(List&amp;lt;McTreeNode&amp;gt; children) : McTreeNode&lt;/div&gt;&lt;div&gt;expand(C4Board board) : void&lt;/div&gt;&lt;div&gt;simulate(McTreeNode node) : void&lt;/div&gt;&lt;div&gt;backpropagation(int wins) : void&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-8">
+          <mxGeometry y="200" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-49" target="kPm8jlnI1OiQ4i8xfv7z-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-62" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-49" target="kPm8jlnI1OiQ4i8xfv7z-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-63" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-49" target="kPm8jlnI1OiQ4i8xfv7z-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-64" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kPm8jlnI1OiQ4i8xfv7z-49" target="kPm8jlnI1OiQ4i8xfv7z-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-49" value="GuiPvE&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;controller&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="400" y="-40" width="280" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-50" value="stage : Stage&lt;div&gt;scene : Scene&lt;/div&gt;&lt;div&gt;root : Parent&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;rows : int&lt;/div&gt;&lt;div&gt;columns : int&lt;/div&gt;&lt;div&gt;circle : Circles[][]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;labelPvP : Label&lt;/div&gt;&lt;div&gt;gridPane : GridPane&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;board : C4Board&lt;/div&gt;&lt;div&gt;gameLogic : C4Logic&lt;/div&gt;&lt;div&gt;player1 : C4Player&lt;/div&gt;&lt;div&gt;player2 : C4Player&lt;/div&gt;&lt;div&gt;currentPlayer : C4Player&lt;/div&gt;&lt;div&gt;mctsRoot : McTreeNode&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-49">
+          <mxGeometry y="40" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="kPm8jlnI1OiQ4i8xfv7z-51" value="initialize(URL arg0, ResourceBundle arg1) : void&lt;div&gt;clickColumn(&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ActionEvent event&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;switchPlayer() : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;updateMctsTree(int selectedColumn) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;updateGrid(int row, int col) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;displayWin() : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;displayDraw() : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;switchToMenu(ActionEvent event) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;restart() : void&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kPm8jlnI1OiQ4i8xfv7z-49">
+          <mxGeometry y="320" width="280" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
