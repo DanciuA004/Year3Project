@@ -1,20 +1,21 @@
 # Diary
+
 ### Wednesday the 9th of April 2025
 Finishing report chapter 4 - 11.
 Completing demo video
 Completing final submission.
 
-### Teusday the 8th of April 2025
+### Tuesday the 8th of April 2025
 Finished code, polished off all logic errors in code.
-Refactorised code and comments.
+Refactorized code and comments.
 
 ### Monday the 7th of April 2025
 Finished code, working on fixing many logic errors in code. 
 
 ### Wednesday the 2nd of April 2025
-Continued work on the report. Re-done chapers 1,2 and 3. 
+Continued work on the report. Re-done chapters 1,2 and 3.
 
-### Teusday the 1st of April 2025
+### Tuesday the 1st of April 2025
 Worked on final year report. Set up meeting with supervisor for Thursday. 
 
 ### Sunday the 23rd of March 2025
@@ -32,8 +33,8 @@ Worked on the expand method for the ai opponent.
 ### Wednesday the 12th of March 2025
 Started work on monte-carlo implementation. Rough tree structure and methods implemented. Completed layout of final report. 
 
-### Teusday the 11th of March 2025
-Had meeting with supervisor, explaid how to do code furhter and got details on final report. 
+### Tuesday the 11th of March 2025
+Had meeting with supervisor, explain how to do code further and got details on final report. 
 
 ### Saturday the 1st of March 2025
 Added more to bibliography and created rough draft of Monte-Carlo section in report,
@@ -46,12 +47,12 @@ Doing research into MCTS and adding to bibliography for report.
 Started work on final report.
 
 ### Monday the 10th of February 2025
-Coppied PvP to PvE, started working towards a basic version of the Ai that randomly selects a move to make.
+Copied PvP to PvE, started working towards a basic version of the Ai that randomly selects a move to make.
 
 ### Sunday the 9th of February 2025
 Finished connecting the back end to GUI for game.
 Had to add a grid pane to contain all the circles,
-updated dropDisc() method to return int instead of boolean to update GUI.
+updated dropDisc() method to return int instead of Boolean to update GUI.
 
 ### Friday the 7th of February 2025
 Continued work on GUI,
@@ -65,7 +66,7 @@ Had meeting with supervisor.
 ### Wednesday the 5th of February, 2025
 Continued work on implementing GUI for program.
 
-### Teusday the 4th of February, 2025
+### Tuesday the 4th of February, 2025
 Started work on implementing GUI for program.
 
 ### Sunday the 2nd of February, 2025
@@ -138,4 +139,4 @@ Finished project plan and submitted.
 Continued work on the project plan. Had a meeting with the project supervisor, we discussed the plan.
 
 ### Wednesday the 2nd of October 2024
-Started work on the project plan. Created a rough template mainly focussing on abstract and risk assessment. Preparing for a meeting tomorrow with a supervisor. 
+Started work on the project plan. Created a rough template mainly focussing on abstract and risk assessment. Preparing for a meeting tomorrow with a supervisor.
