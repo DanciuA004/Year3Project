@@ -8,6 +8,7 @@ import java.util.Random;
  * This class hold the tree structure used for the monte-carlo algorithm.
  */
 public class McTreeNode {
+  private final int MAXSIMS = 1000;
   private C4Board board;
   private List<McTreeNode> children; // the list of children, the next moves from this node.
   private C4Player currentPlayer;
@@ -120,7 +121,7 @@ public class McTreeNode {
         // Ensures the AI takes the next winning move.
         C4Logic gameLogic = new C4Logic();
         if (gameLogic.checkWin(boardCopy)) {
-          node.wins = 10000; // Set max win count.
+          node.wins = MAXSIMS; // Set max win count.
         }
 
         children.add(node);
@@ -144,7 +145,7 @@ public class McTreeNode {
     C4Player simPlayer2 = new C4Player("Player 2", 'Y');
     C4Player currentSimPlayer = simPlayer2;
 
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < MAXSIMS; i++) {
       C4Board simBoardCopy = simBoard.copyBoard();
       while (!gameLogic.checkWin(simBoardCopy) && !gameLogic.checkDraw(simBoardCopy)) {
 
