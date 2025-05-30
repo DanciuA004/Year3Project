@@ -250,6 +250,7 @@ public class GuiPvEcontroller implements Initializable {
    */
 
   public void switchToMenu(ActionEvent event) throws IOException {
+    restart();
     root = FXMLLoader.load(getClass().getResource("GuiMenu.fxml"));
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
